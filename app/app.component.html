@@ -1,0 +1,8 @@
+<h1 class="jumbotron">
+    {{titulo}}
+    </h1>
+<lista-clientes [clientes]="clientes" (seleccionarCliente)="onSelectCliente($event)">
+
+</lista-clientes>
+<detalle-cliente *ngIf="clienteSeleccionado " [cliente]="clienteSeleccionado">
+</detalle-cliente >
