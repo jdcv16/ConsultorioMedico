@@ -2,7 +2,7 @@ import {Component, Input, EventEmitter,Output} from '@angular/core';
 import { Cliente } from './cliente';
 @Component({
 selector: 'lista-clientes',
-templateUrl: 'app/listaclientes.component.html'
+templateUrl: 'app/clientes/listaclientes.component.html'
 })
 export class ListaClientesComponent{
     @Input() clientes;

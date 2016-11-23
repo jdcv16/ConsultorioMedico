@@ -9,22 +9,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var cliente_1 = require('./cliente');
-var DetalleClienteComponent = (function () {
-    function DetalleClienteComponent() {
+var ListaClientesComponent = (function () {
+    function ListaClientesComponent() {
+        this.seleccionarCliente = new core_1.EventEmitter();
     }
+    ListaClientesComponent.prototype.onSelect = function (cli) {
+        this.seleccionarCliente.next(cli);
+    };
     __decorate([
         core_1.Input(), 
-        __metadata('design:type', cliente_1.Cliente)
-    ], DetalleClienteComponent.prototype, "cliente", void 0);
-    DetalleClienteComponent = __decorate([
+        __metadata('design:type', Object)
+    ], ListaClientesComponent.prototype, "clientes", void 0);
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', Object)
+    ], ListaClientesComponent.prototype, "seleccionarCliente", void 0);
+    ListaClientesComponent = __decorate([
         core_1.Component({
-            selector: 'detalle-cliente',
-            templateUrl: 'app/detallecliente.component.html'
+            selector: 'lista-clientes',
+            templateUrl: 'app/clientes/listaclientes.component.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], DetalleClienteComponent);
-    return DetalleClienteComponent;
+    ], ListaClientesComponent);
+    return ListaClientesComponent;
 }());
-exports.DetalleClienteComponent = DetalleClienteComponent;
-//# sourceMappingURL=detallecliente.component.js.map
+exports.ListaClientesComponent = ListaClientesComponent;
+//# sourceMappingURL=listaclientes.component.js.map

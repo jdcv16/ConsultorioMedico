@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { Config } from './config.service';
-import { Cliente } from './cliente';
-import { ListaClientesComponent } from './listaclientes.component';
-import { DetalleClienteComponent } from './detallecliente.component';
+import { Cliente, ListaClientesComponent, DetalleClienteComponent } from './clientes';
 @Component({
 selector: 'mi-app',
 templateUrl: 'app/app.component.html'
