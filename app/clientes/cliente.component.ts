@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
-import { Config } from './config.service';
+import { Cliente, ListaClientesComponent, DetalleClienteComponent } from '../clientes';
+import { Config } from '../config.service';
 
-import { Cliente, ListaClientesComponent, DetalleClienteComponent, ClienteComponent } from './clientes';
 @Component({
-selector: 'mi-app',
-templateUrl: 'app/app.component.html',
-styleUrls: ['app/app.component.css']
+selector: 'el-cliente',
+templateUrl: 'app/clientes/cliente.component.html'
 })
-export class AppComponent {
+export class ClienteComponent {
     titulo = Config.TITULO_PAGINA;
     clientes : Array<Cliente>;
     clienteSeleccionado: Cliente;

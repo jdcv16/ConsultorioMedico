@@ -5,4 +5,5 @@ function __export(m) {
 __export(require('./clientes/cliente'));
 __export(require('./clientes/detallecliente.component'));
 __export(require('./clientes/listaclientes.component'));
+__export(require('./clientes/cliente.component'));
 //# sourceMappingURL=clientes.js.map
