@@ -1,1 +1,1 @@
-export * from './medidas';
+export * from './medidas/medida';
