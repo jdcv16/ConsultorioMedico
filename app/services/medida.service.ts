@@ -21,7 +21,7 @@ export class MedidaService{
     postMedida(nom){
         let body = JSON.stringify({"nom_medida": nom});
         let headers = new Headers({'Content-Type':'application/json'});
-        headers.append('Access-Control-Allow-Origin','http://127.0.0.1:12345');
+        headers.append('Access-Control-Allow-Origin','http://127.0.0.1/');
         headers.append('Access-Control-Allow-Methods','POST');
         headers.append('Access-Control-Allow-Headers','X-Requested-With,Content-Type');
         let options = new RequestOptions({headers: headers});
@@ -33,9 +33,27 @@ export class MedidaService{
                 } else {
                     return false;
                 }
-
             })
-            .catch (this.handleError);
+    }
+
+    modificarMedida(id_medida,nom_medida){
+        let body = JSON.stringify({ "nom_medida": nom_medida});
+        let headers = new Headers({ 'Content-Type':'application/json'});
+        headers.append('Access-Control-Allow-Origin','http://127.0.0.1/');
+        headers.append('Access-Control-Allow-Methods','POST');
+        headers.append('Access-Control-Allow-Headers','X-Requested-With,Content-Type');
+        let options = new RequestOptions({headers: headers});
+        options.headers;
+        return this.http.put(this.endpoint_url + '/' + id_medida, body, options)
+            .map((response: Response) => {
+                if(response.json().status){
+                    return true;
+                } else {
+                    return false;
+                }
+            })
     }
 }
+
+
 

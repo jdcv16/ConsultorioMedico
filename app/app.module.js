@@ -14,15 +14,17 @@ var forms_1 = require('@angular/forms');
 var app_component_1 = require('./app.component');
 var http_1 = require('@angular/http');
 var app_routing_1 = require('./app.routing');
+var index_1 = require('./services/index');
 var clientes_1 = require('./clientes');
+var medidas_1 = require('./medidas');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, app_routing_1.routing],
-            declarations: [app_component_1.AppComponent, clientes_1.ListaClientesComponent, clientes_1.DetalleClienteComponent, clientes_1.ClienteComponent],
-            providers: [],
+            declarations: [app_component_1.AppComponent, clientes_1.ListaClientesComponent, clientes_1.DetalleClienteComponent, clientes_1.ClienteComponent, medidas_1.MedidaComponent, medidas_1.ModificarMedidaComponent],
+            providers: [index_1.MedidaService],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

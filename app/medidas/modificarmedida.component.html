@@ -1,0 +1,18 @@
+<table class="table table-bordered table-hover no-mgn-btm" >
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>NOMBRE DE MEDIDA</th>
+            <th>ACCION</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let medida of generateArray(medidas); let i=index">
+            <td *ngIf="i<10">{{medida.id_medida}}</td>
+            <td *ngIf="i<10">{{medida.nom_medida}}</td>
+            <td align="center" *ngIf="i<10">
+                <span class="label label-success" (click)="modificarMedida(medida.id_medida, medida.nom_medida);">MODIFICAR</span>
+            </td>
+        </tr>
+    </tbody>
+</table>
