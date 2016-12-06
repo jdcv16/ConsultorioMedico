@@ -14,23 +14,33 @@ var AgregarMedidaComponent = (function () {
     function AgregarMedidaComponent(_medidaService) {
         this._medidaService = _medidaService;
         this.modelo = {};
-        this.loading = false;
         this._medidaService = _medidaService;
     }
     AgregarMedidaComponent.prototype.insertarMedida = function () {
         var _this = this;
-        this.loading = true;
         this._medidaService.postMedida(this.modelo.nom_medida)
             .subscribe(function (result) {
             if (result === true) {
-                _this.messageOK = "Insertado de forma Correcta.";
-                _this.loading = false;
+                _this.messageOK = "La medida se agregó con éxito.";
             }
             else {
-                _this.message = "Algo salió mal :(";
-                _this.loading = false;
+                _this.message = "Error!! La medida no pudo ser agregada";
             }
         });
+        if (this.message != "") {
+            this.hidemessage();
+        }
+        if (this.messageOK != "") {
+            this.hidemessageOK();
+        }
+    };
+    AgregarMedidaComponent.prototype.hidemessage = function () {
+        var _this = this;
+        this.timer = setTimeout(function () { return _this.message = ""; }, 3000);
+    };
+    AgregarMedidaComponent.prototype.hidemessageOK = function () {
+        var _this = this;
+        this.timer = setTimeout(function () { return _this.messageOK = ""; }, 3000);
     };
     AgregarMedidaComponent = __decorate([
         core_1.Component({

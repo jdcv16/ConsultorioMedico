@@ -6,4 +6,5 @@ __export(require('./medidas/medida'));
 __export(require('./medidas/medida.component'));
 __export(require('./medidas/modificarmedida.component'));
 __export(require('./medidas/agregarmedida.component'));
+__export(require('./medidas/mostrarmedidas.component'));
 //# sourceMappingURL=medidas.js.map

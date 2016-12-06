@@ -1,0 +1,26 @@
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h1 class="panel-title">Mostrar Medicamentos</h1>
+    </div>
+    <div class="panel-body">
+        <table class="table table-bordered table-hover no-mgn-btm" >
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NOMBRE DE MEDICAMENTO</th>
+                    <th>NOMBRE GENÉRICO</th>
+                    <th>TIPO DE MEDIDA</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let medicamento of generateArray(medicamentos); let i=index">
+                    <td>{{medicamento.id_medicamento}}</td>
+                    <td>{{medicamento.nom_medicamento}}</td>
+                    <td>{{medicamento.nom_generico}}</td>
+                    <td>{{medicamento.tipo_medida}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

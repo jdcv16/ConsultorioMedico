@@ -4,6 +4,7 @@ var Config = (function () {
     }
     Config.TITULO_PAGINA = "Consultorio Médico";
     Config.TITULO_MEDIDA = "Medidas";
+    Config.TITULO_MEDICAMENTO = "Medicamentos";
     return Config;
 }());
 exports.Config = Config;

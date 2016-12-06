@@ -3,6 +3,8 @@ import { Config } from './config.service';
 
 import { Cliente, ListaClientesComponent, DetalleClienteComponent, ClienteComponent } from './clientes';
 import { Medida, MedidaComponent, ModificarMedidaComponent } from './medidas';
+import { MedicamentoComponent, MostrarMedicamentosComponent,AgregarMedicamentoComponent } from './medicamentos';
+import { DashboardComponent } from './dashboard';
 @Component({
 selector: 'mi-app',
 templateUrl: 'app/app.component.html',

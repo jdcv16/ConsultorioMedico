@@ -10,43 +10,45 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var medida_service_1 = require('../services/medida.service');
+var core_2 = require('@angular/core');
 var ModificarMedidaComponent = (function () {
     function ModificarMedidaComponent(_medidaService) {
         this._medidaService = _medidaService;
+        this.modelo = {};
         this.medidas = [];
         this._medidaService = _medidaService;
     }
-    ModificarMedidaComponent.prototype.getAllMedidas = function () {
+    ModificarMedidaComponent.prototype.modificarMedida = function () {
         var _this = this;
-        this._medidaService.getAllMedidas()
-            .subscribe(function (data) { return _this.medidas = data; }, function (error) { return alert("Error: " + error); });
-    };
-    ModificarMedidaComponent.prototype.generateArray = function (obj) {
-        return Object.keys(obj).map(function (key) { return obj[key]; });
-    };
-    ModificarMedidaComponent.prototype.modificarMedida = function (id_medida, nom_medida) {
-        var _this = this;
-        this._medidaService.modificarMedida(id_medida, nom_medida)
+        this._medidaService.modificarMedida(this.modelo.id_medida, this.modelo.nom_medida)
             .subscribe(function (result) {
             if (result === true) {
                 _this.message = '';
-                _this.messageOK = 'Se modificó correctamente la medida.';
-                _this.getAllMedidas();
+                _this.messageOK = 'La medida se modificó con éxito.';
             }
             else {
                 _this.messageOK = '';
-                _this.message = 'Algo salió mal al modificar la medida';
+                _this.message = 'Error!! La medida no pudo ser modificada';
             }
         });
+        this.hidemessage();
+        this.hidemessageOK();
     };
-    ModificarMedidaComponent.prototype.ngOnInit = function () {
-        this.getAllMedidas();
+    ModificarMedidaComponent.prototype.hidemessage = function () {
+        var _this = this;
+        this.timer = setTimeout(function () { return _this.message = ""; }, 3000);
+    };
+    ModificarMedidaComponent.prototype.hidemessageOK = function () {
+        var _this = this;
+        this.timer = setTimeout(function () { return _this.messageOK = ""; }, 3000);
     };
     ModificarMedidaComponent = __decorate([
         core_1.Component({
             selector: 'modificar-medida',
-            templateUrl: 'app/medidas/modificarmedida.component.html'
-        }), 
+            templateUrl: 'app/medidas/modificarmedida.component.html',
+            styleUrls: ['app/medidas/modificarmedida.component.css']
+        }),
+        core_2.Injectable(), 
         __metadata('design:paramtypes', [medida_service_1.MedidaService])
     ], ModificarMedidaComponent);
     return ModificarMedidaComponent;

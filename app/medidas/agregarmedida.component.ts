@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MedidaService } from '../services/medida.service';
+import { ModificarMedidaComponent } from '../medidas';
 
 @Component({
     selector:'agregar-medida',
@@ -7,25 +8,37 @@ import { MedidaService } from '../services/medida.service';
 })
 
 export class AgregarMedidaComponent{
+    private timer;
     modelo: any = {};
-    loading = false;
     public message;
     public messageOK;
-    constructor(private _medidaService: MedidaService){
+    constructor(private _medidaService: MedidaService,){
         this._medidaService = _medidaService;
     }
 
     insertarMedida(){
-        this.loading = true;
         this._medidaService.postMedida(this.modelo.nom_medida)
             .subscribe(result => {
                 if(result === true){
-                    this.messageOK = "Insertado de forma Correcta.";
-                    this.loading = false;
+                    this.messageOK = "La medida se agregó con éxito.";
                 } else {
-                    this.message = "Algo salió mal :(";
-                    this.loading = false;
+                    this.message = "Error!! La medida no pudo ser agregada";
                 }
             });
+        if(this.message != "")
+        {
+            this.hidemessage();
+        }
+        if(this.messageOK != ""){
+            this.hidemessageOK();
+        }
+    }
+
+    hidemessage() {
+        this.timer = setTimeout(() => this.message = "", 3000);
+    }
+
+    hidemessageOK() {
+        this.timer = setTimeout(() => this.messageOK = "" , 3000);
     }
 }

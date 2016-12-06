@@ -37,15 +37,15 @@ var MedidaService = (function () {
             }
         });
     };
-    MedidaService.prototype.modificarMedida = function (id_medida, nom_medida) {
-        var body = JSON.stringify({ "nom_medida": nom_medida });
+    MedidaService.prototype.modificarMedida = function (id, nom) {
+        var body = JSON.stringify({ "nom_medida": nom });
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        headers.append('Access-Control-Allow-Origin', 'http://127.0.0.1/');
-        headers.append('Access-Control-Allow-Methods', 'POST');
+        headers.append('Access-Control-Allow-Origin', 'http://127.0.0.1:12345/');
+        headers.append('Access-Control-Allow-Methods', 'PUT');
         headers.append('Access-Control-Allow-Headers', 'X-Requested-With,Content-Type');
         var options = new http_1.RequestOptions({ headers: headers });
         options.headers;
-        return this.http.put(this.endpoint_url + '/' + id_medida, body, options)
+        return this.http.put(this.endpoint_url + '/' + id, body, options)
             .map(function (response) {
             if (response.json().status) {
                 return true;

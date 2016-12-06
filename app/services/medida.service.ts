@@ -36,15 +36,15 @@ export class MedidaService{
             })
     }
 
-    modificarMedida(id_medida,nom_medida){
-        let body = JSON.stringify({ "nom_medida": nom_medida});
+    modificarMedida(id,nom){
+        let body = JSON.stringify({"nom_medida": nom});
         let headers = new Headers({ 'Content-Type':'application/json'});
-        headers.append('Access-Control-Allow-Origin','http://127.0.0.1/');
-        headers.append('Access-Control-Allow-Methods','POST');
+        headers.append('Access-Control-Allow-Origin','http://127.0.0.1:12345/');
+        headers.append('Access-Control-Allow-Methods','PUT');
         headers.append('Access-Control-Allow-Headers','X-Requested-With,Content-Type');
         let options = new RequestOptions({headers: headers});
         options.headers;
-        return this.http.put(this.endpoint_url + '/' + id_medida, body, options)
+        return this.http.put(this.endpoint_url + '/' + id, body, options)
             .map((response: Response) => {
                 if(response.json().status){
                     return true;
