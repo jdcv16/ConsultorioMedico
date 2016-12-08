@@ -27,9 +27,10 @@ var AppModule = (function () {
             imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, app_routing_1.routing],
             declarations: [
                 app_component_1.AppComponent,
-                clientes_1.ListaClientesComponent,
-                clientes_1.DetalleClienteComponent,
                 clientes_1.ClienteComponent,
+                clientes_1.MostrarClientesComponent,
+                clientes_1.AgregarClienteComponent,
+                clientes_1.ModificarClienteComponent,
                 medidas_1.MedidaComponent,
                 medidas_1.MostrarMedidasComponent,
                 medidas_1.ModificarMedidaComponent,
@@ -37,8 +38,9 @@ var AppModule = (function () {
                 medicamentos_1.MedicamentoComponent,
                 medicamentos_1.MostrarMedicamentosComponent,
                 medicamentos_1.AgregarMedicamentoComponent,
+                medicamentos_1.ModificarMedicamentoComponent,
                 dashboard_1.DashboardComponent],
-            providers: [index_1.MedidaService, index_1.MedicamentoService],
+            providers: [index_1.MedidaService, index_1.MedicamentoService, index_1.ClienteService],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

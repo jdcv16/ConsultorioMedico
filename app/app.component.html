@@ -9,13 +9,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Consultorio Médico Online</a>
+        <a class="navbar-brand" routerLink="">Consultorio Médico Online</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-            <li><a href="">Home<span class="sr-only">(current)</span></a></li>
+            <li><a routerLink="">Home<span class="sr-only">(current)</span></a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="#">Link</a></li>
@@ -30,11 +30,26 @@
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li><a routerLink="/el-cliente">Clientes</a></li>
-                <li><a routerLink="/la-medida">Medidas</a></li>
-                <li><a routerLink="/el-medicamento">Medicamentos</a></li>
+                <li data-toggle="collapse" data-target="#clientes" class="collapsed active"><a>Clientes<span class="arrow"></span></a></li>
+                <ul class="sub-menu collapse" id="clientes">
+                    <li><a routerLink="/agregar-cliente">Agregar Cliente</a></li>
+                    <li><a routerLink="/mostrar-clientes">Mostrar Clientes</a></li>
+                    <li><a routerLink="/modificar-cliente">Modificar Cliente</a></li>
+                </ul>
+                <li data-toggle="collapse" data-target="#medidas" class="collapsed active"><a>Medidas<span class="arrow"></span></a></li>
+                <ul class="sub-menu collapse" id="medidas">
+                    <li><a routerLink="/agregar-medida">Agregar Medida</a></li>
+                    <li><a routerLink="/mostrar-medidas">Mostrar Medidas</a></li>
+                    <li><a routerLink="/modificar-medida">Modificar Medida</a></li>
+                </ul>
+                <li data-toggle="collapse" data-target="#medicamentos" class="collapsed active"><a>Medicamentos<span class="arrow"></span></a></li>
+                <ul class="sub-menu collapse" id="medicamentos">
+                    <li><a routerLink="/agregar-medicamento">Agregar Medicamento</a></li>
+                    <li><a routerLink="/mostrar-medicamentos">Mostrar Medicamentos</a></li>
+                    <li><a routerLink="/modificar-medicamento">Modificar Medicamento</a></li>
+                </ul>
                 <li>
-                    <a href="#">Contact</a>
+                    <a srouterLink="">Contact</a>
                 </li>
             </ul>
         </div>

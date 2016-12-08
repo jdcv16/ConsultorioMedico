@@ -9,11 +9,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var config_service_1 = require('./config.service');
 var clientes_1 = require('./clientes');
 var AppComponent = (function () {
     function AppComponent() {
-        this.titulo = config_service_1.Config.TITULO_PAGINA;
         this.clientes = [new clientes_1.Cliente(1, "José", "Cota", "jdcv.sw.dev@gmail.com", "6681620312", "16-03-1995"),
             new clientes_1.Cliente(2, "Eduardo", "Lopez", "lalolopez@gmail.com", "8123267", "18-08-1988", "Gonzalez")];
     }

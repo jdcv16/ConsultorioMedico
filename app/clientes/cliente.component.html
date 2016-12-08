@@ -1,8 +1,9 @@
 <h1 class="jumbotron">
     {{titulo}}
-    </h1>
-<lista-clientes [clientes]="clientes" (seleccionarCliente)="onSelectCliente($event)">
-
-</lista-clientes>
-<detalle-cliente *ngIf="clienteSeleccionado " [cliente]="clienteSeleccionado">
-</detalle-cliente >
+</h1>
+<br>
+<ul class="nav nav-pills nav-stacked">
+    <li><a routerLink="">AGREGAR CLIENTE</a></li>
+    <li><a routerLink="/mostrar-clientes">MOSTRAR CLIENTES</a></li>
+    <li><a routerLink="">MODIFICAR CLIENTE</a></li>
+</ul>

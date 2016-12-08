@@ -2,7 +2,7 @@
 var Config = (function () {
     function Config() {
     }
-    Config.TITULO_PAGINA = "Consultorio Médico";
+    Config.TITULO_CLIENTE = "Clientes";
     Config.TITULO_MEDIDA = "Medidas";
     Config.TITULO_MEDICAMENTO = "Medicamentos";
     return Config;

@@ -1,0 +1,36 @@
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h1 class="panel-title">Mostrar Clientes</h1>
+    </div>
+    <div class="panel-body">
+        <div class="table-responsive">  
+            <table class="table table-bordered table-hover no-mgn-btm" >
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>NOMBRE(S)</th>
+                        <th>APELLIDO PATERNO</th>
+                        <th>APELLIDO MATERNO</th>
+                        <th>FECHA DE NACIMIENTO</th>
+                        <th>FECHA DE REGISTRO</th>
+                        <th>TELÉFONO</th>
+                        <th>DIRECCIÓN</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let cliente of generateArray(clientes); let i=index">
+                        <td>{{cliente.id}}</td>
+                        <td>{{cliente.nom_cliente}}</td>
+                        <td>{{cliente.ap1_cliente}}</td>
+                        <td>{{cliente.ap2_cliente}}</td>
+                        <td>{{cliente.fecha_nac_cliente}}</td>
+                        <td>{{cliente.fecha_reg_cliente}}</td>
+                        <th>{{cliente.tel_cliente}}</th>
+                        <td>{{cliente.dir_cliente}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

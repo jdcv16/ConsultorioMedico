@@ -22,20 +22,22 @@ var AgregarMedicamentoComponent = (function () {
     }
     AgregarMedicamentoComponent.prototype.insertarMedicamento = function () {
         var _this = this;
-        this._medicamentoService.postMedicamento(this.modelo.nom_medicamento, this.modelo.nom_generico, this.modelo.tipo_medida)
-            .subscribe(function (result) {
-            if (result === true) {
-                _this.messageOK = "El medicamento se agregó con éxito.";
+        if (this.modelo.nom_medicamento != undefined && this.modelo.nom_generico != undefined && this.modelo.tipo_medida != undefined) {
+            this._medicamentoService.postMedicamento(this.modelo.nom_medicamento, this.modelo.nom_generico, this.modelo.tipo_medida)
+                .subscribe(function (result) {
+                if (result === true) {
+                    _this.messageOK = "El medicamento se agregó con éxito.";
+                }
+                else {
+                    _this.message = "Error!! El medicamento no pudo ser agregado";
+                }
+            });
+            if (this.message != "") {
+                this.hidemessage();
             }
-            else {
-                _this.message = "Error!! El medicamento no pudo ser agregado";
+            if (this.messageOK != "") {
+                this.hidemessageOK();
             }
-        });
-        if (this.message != "") {
-            this.hidemessage();
-        }
-        if (this.messageOK != "") {
-            this.hidemessageOK();
         }
     };
     AgregarMedicamentoComponent.prototype.getAllMedidas = function () {

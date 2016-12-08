@@ -21,20 +21,23 @@ export class AgregarMedicamentoComponent{
     }
 
     insertarMedicamento(){
-        this._medicamentoService.postMedicamento(this.modelo.nom_medicamento,this.modelo.nom_generico,this.modelo.tipo_medida)
-            .subscribe(result => {
-                if(result === true){
-                    this.messageOK = "El medicamento se agregó con éxito.";
-                } else {
-                    this.message = "Error!! El medicamento no pudo ser agregado";
-                }
-            });
-        if(this.message != "")
+        if(this.modelo.nom_medicamento != undefined && this.modelo.nom_generico != undefined && this.modelo.tipo_medida != undefined)
         {
-            this.hidemessage();
-        }
-        if(this.messageOK != ""){
-            this.hidemessageOK();
+            this._medicamentoService.postMedicamento(this.modelo.nom_medicamento,this.modelo.nom_generico,this.modelo.tipo_medida)
+                .subscribe(result => {
+                    if(result === true){
+                        this.messageOK = "El medicamento se agregó con éxito.";
+                    } else {
+                        this.message = "Error!! El medicamento no pudo ser agregado";
+                    }
+                });
+            if(this.message != "")
+            {
+                this.hidemessage();
+            }
+            if(this.messageOK != ""){
+                this.hidemessageOK();
+            }
         }
     }
 

@@ -5,19 +5,20 @@ import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { HttpModule } from '@angular/http';
 import { routing } from './app.routing';
-import { MedidaService, MedicamentoService} from './services/index';
-import { ClienteComponent, ListaClientesComponent, DetalleClienteComponent } from './clientes'; 
+import { MedidaService, MedicamentoService, ClienteService} from './services/index';
+import { ClienteComponent,MostrarClientesComponent,AgregarClienteComponent,ModificarClienteComponent} from './clientes'; 
 import { MedidaComponent, ModificarMedidaComponent, AgregarMedidaComponent, MostrarMedidasComponent} from './medidas';
-import { MedicamentoComponent, MostrarMedicamentosComponent, AgregarMedicamentoComponent} from './medicamentos';
+import { MedicamentoComponent, MostrarMedicamentosComponent, AgregarMedicamentoComponent, ModificarMedicamentoComponent} from './medicamentos';
 import { DashboardComponent } from './dashboard';
 
 @NgModule({
 imports: [BrowserModule, FormsModule, HttpModule, routing],
 declarations: [
-    AppComponent, 
-    ListaClientesComponent, 
-    DetalleClienteComponent, 
-    ClienteComponent, 
+    AppComponent,
+    ClienteComponent,
+    MostrarClientesComponent,
+    AgregarClienteComponent,
+    ModificarClienteComponent,
     MedidaComponent, 
     MostrarMedidasComponent,
     ModificarMedidaComponent,
@@ -25,8 +26,9 @@ declarations: [
     MedicamentoComponent,
     MostrarMedicamentosComponent,
     AgregarMedicamentoComponent,
+    ModificarMedicamentoComponent,
     DashboardComponent],
-providers:[MedidaService, MedicamentoService],
+providers:[MedidaService, MedicamentoService, ClienteService],
 bootstrap: [AppComponent]
 })
 export class AppModule { }

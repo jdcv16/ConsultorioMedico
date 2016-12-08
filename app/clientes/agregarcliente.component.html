@@ -1,0 +1,62 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h1 class="panel-title">Agregar Cliente</h1>
+    </div>
+    <div class="panel-body">
+        <form name="forma_agregarcliente" action="" method="POST" action="">
+        <div class="form-group">
+            <label for="txtnom">Nombre(s) del Cliente</label>
+            <input type="text" maxlength="45" size="15" placeholder="PITO" [(ngModel)]="modelo.nom_cliente" 
+            autocomplete="off" name="txtnom" id="txtnom" class="form-control"
+            style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
+        </div>
+        <div class="form-group">
+            <label for="txtap1">Apellido 1 del Cliente</label>
+            <input type="text" maxlength="45" size="15" placeholder="PEREZ" [(ngModel)]="modelo.ap1_cliente" 
+            autocomplete="off" name="txtap1" id="txtap1" class="form-control"
+            style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
+        </div>
+        <div class="form-group">
+            <label for="txtap2">Apellido 2 del Cliente</label>
+            <input type="text" maxlength="45" size="15" placeholder="PERAZA" [(ngModel)]="modelo.ap2_cliente" 
+            autocomplete="off" name="txtap2" id="txtap2" class="form-control"
+            style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+        </div>
+        <div class="form-group">
+            <label for="txtfechanac">Fecha de Nacimiento del Cliente</label>
+            <input type="date" size="15" [(ngModel)]="modelo.fecha_nac_cliente" 
+            autocomplete="off" name="txtfechanac" id="txtfechanac" class="form-control"
+            style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+        </div>
+        <div class="form-group">
+            <label for="txtfechareg">Fecha del Registro del Cliente</label>
+            <input type="date" size="15" [(ngModel)]="modelo.fecha_reg_cliente" 
+            autocomplete="off" name="txtfechareg" id="txtfechareg" class="form-control"
+            style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+        </div>
+        <div class="form-group">
+            <label for="txttel">Teléfono del Cliente</label>
+            <input type="text" maxlength="10" size="15" placeholder="6681620312" [(ngModel)]="modelo.tel_cliente" 
+            autocomplete="off" name="txttel" id="txttel" class="form-control"
+            style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+        </div>
+            <div class="form-group">
+            <label for="txtdir">Dirección del Cliente</label>
+            <input type="text" maxlength="45" size="100" placeholder="FUENTE DE POSEIDON #166 PTE. COLONIA MAGISTERIAL" [(ngModel)]="modelo.dir_cliente" 
+            autocomplete="off" name="txtdir" id="txtdir" class="form-control"
+            style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+        </div>
+        <div>
+            <div class="btn-group">
+                <input class="btn btn-success" type="submit" (click)="insertarCliente();" value="AGREGAR CLIENTE">
+                <button class="btn btn-default" type="reset">LIMPIAR CAMPOS</button>
+            </div>
+            <br>
+            <br>
+            <div *ngIf="messageOK" class="alert alert-success">{{messageOK}}</div>
+            <div *ngIf="message" class="alert alert-danger">{{message}}</div>
+        </div>
+        </form>
+    </div>
+</div>
+

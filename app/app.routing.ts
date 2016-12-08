@@ -1,9 +1,9 @@
 import {ModuleWithProviders} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 
-import {ClienteComponent} from './clientes';
+import {ClienteComponent, MostrarClientesComponent, AgregarClienteComponent,ModificarClienteComponent} from './clientes';
 import {MedidaComponent,AgregarMedidaComponent,MostrarMedidasComponent,ModificarMedidaComponent} from './medidas';
-import {MedicamentoComponent,MostrarMedicamentosComponent,AgregarMedicamentoComponent} from './medicamentos';
+import {MedicamentoComponent,MostrarMedicamentosComponent,AgregarMedicamentoComponent,ModificarMedicamentoComponent} from './medicamentos';
 import {AppComponent} from './app.component';
 import {DashboardComponent} from './dashboard';
 
@@ -11,6 +11,18 @@ const appRoutes = [
 {
     path: 'el-cliente',
     component: ClienteComponent
+},
+{
+    path: 'mostrar-clientes',
+    component:  MostrarClientesComponent
+},
+{
+    path: 'agregar-cliente',
+    component: AgregarClienteComponent
+},
+{
+    path: 'modificar-cliente',
+    component: ModificarClienteComponent
 },
 {
     path: 'la-medida',
@@ -39,6 +51,10 @@ const appRoutes = [
 {
     path: 'agregar-medicamento',
     component: AgregarMedicamentoComponent
+},
+{
+    path: 'modificar-medicamento',
+    component: ModificarMedicamentoComponent
 },
 {
     path: 'dashboard',

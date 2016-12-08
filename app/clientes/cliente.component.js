@@ -13,7 +13,7 @@ var clientes_1 = require('../clientes');
 var config_service_1 = require('../config.service');
 var ClienteComponent = (function () {
     function ClienteComponent() {
-        this.titulo = config_service_1.Config.TITULO_PAGINA;
+        this.titulo = config_service_1.Config.TITULO_CLIENTE;
         this.clientes = [new clientes_1.Cliente(1, "José", "Cota", "jdcv.sw.dev@gmail.com", "6681620312", "16-03-1995"),
             new clientes_1.Cliente(2, "Eduardo", "Lopez", "lalolopez@gmail.com", "8123267", "18-08-1988", "Gonzalez")];
     }

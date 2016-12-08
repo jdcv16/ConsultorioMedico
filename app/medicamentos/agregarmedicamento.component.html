@@ -18,6 +18,7 @@
         </div>
         <div class="form-group">
             <label for="cb_tipomedida">Tipo de Medida</label>
+              <!-- Aqui esta el ejemplo que manda llamar el combobox de las medidas -->
             <select class="form-control" [(ngModel)]="modelo.tipo_medida" name="cb_tipomedida" id="cb_tipomedida"  required>
                 <option value="{{medida.id_medida}}" *ngFor="let medida of generateArray(medidas)" >{{medida.nom_medida}}</option>
             </select>

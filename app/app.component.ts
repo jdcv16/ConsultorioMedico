@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { Config } from './config.service';
 
-import { Cliente, ListaClientesComponent, DetalleClienteComponent, ClienteComponent } from './clientes';
+import { Cliente, ClienteComponent, MostrarClientesComponent, AgregarClienteComponent, ModificarClienteComponent } from './clientes';
 import { Medida, MedidaComponent, ModificarMedidaComponent } from './medidas';
-import { MedicamentoComponent, MostrarMedicamentosComponent,AgregarMedicamentoComponent } from './medicamentos';
+import { MedicamentoComponent, MostrarMedicamentosComponent,AgregarMedicamentoComponent, ModificarMedicamentoComponent} from './medicamentos';
 import { DashboardComponent } from './dashboard';
 @Component({
 selector: 'mi-app',
@@ -11,7 +11,6 @@ templateUrl: 'app/app.component.html',
 styleUrls: ['app/app.component.css']
 })
 export class AppComponent {
-    titulo = Config.TITULO_PAGINA;
     clientes : Array<Cliente>;
     clienteSeleccionado: Cliente;
     constructor(){

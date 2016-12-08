@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MedidaService } from '../services/medida.service';
 import { Medida } from '../medidas';
-import {Injectable} from '@angular/core';
 
 @Component({
 selector: 'modificar-medida',
@@ -9,7 +8,6 @@ templateUrl: 'app/medidas/modificarmedida.component.html',
 styleUrls: ['app/medidas/modificarmedida.component.css']
 })
 
-@Injectable()
 export class ModificarMedidaComponent{
     private timer;
     modelo: any = {};

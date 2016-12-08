@@ -9,47 +9,45 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var medida_service_1 = require('../services/medida.service');
-var ModificarMedidaComponent = (function () {
-    function ModificarMedidaComponent(_medidaService) {
-        this._medidaService = _medidaService;
+var cliente_service_1 = require('../services/cliente.service');
+var ModificarClienteComponent = (function () {
+    function ModificarClienteComponent(_clienteService) {
+        this._clienteService = _clienteService;
         this.modelo = {};
-        this.medidas = [];
-        this._medidaService = _medidaService;
+        this._clienteService = _clienteService;
     }
-    ModificarMedidaComponent.prototype.modificarMedida = function () {
+    ModificarClienteComponent.prototype.modificarCliente = function () {
         var _this = this;
-        this._medidaService.modificarMedida(this.modelo.id_medida, this.modelo.nom_medida)
+        this._clienteService.modificarCliente(this.modelo.id_cliente, this.modelo.nom_cliente, this.modelo.ap1_cliente, this.modelo.ap2_cliente, this.modelo.fecha_nac_cliente, this.modelo.fecha_reg_cliente, this.modelo.tel_cliente, this.modelo.dir_cliente)
             .subscribe(function (result) {
             if (result === true) {
                 _this.message = '';
-                _this.messageOK = 'La medida se modificó con éxito.';
+                _this.messageOK = 'El cliente se modificó con éxito.';
             }
             else {
                 _this.messageOK = '';
-                _this.message = 'Error!! La medida no pudo ser modificada';
+                _this.message = 'Error!! El cliente no pudo ser modificada';
             }
         });
         this.hidemessage();
         this.hidemessageOK();
     };
-    ModificarMedidaComponent.prototype.hidemessage = function () {
+    ModificarClienteComponent.prototype.hidemessage = function () {
         var _this = this;
         this.timer = setTimeout(function () { return _this.message = ""; }, 3000);
     };
-    ModificarMedidaComponent.prototype.hidemessageOK = function () {
+    ModificarClienteComponent.prototype.hidemessageOK = function () {
         var _this = this;
         this.timer = setTimeout(function () { return _this.messageOK = ""; }, 3000);
     };
-    ModificarMedidaComponent = __decorate([
+    ModificarClienteComponent = __decorate([
         core_1.Component({
-            selector: 'modificar-medida',
-            templateUrl: 'app/medidas/modificarmedida.component.html',
-            styleUrls: ['app/medidas/modificarmedida.component.css']
+            selector: 'modificar-cliente',
+            templateUrl: 'app/clientes/modificarcliente.component.html'
         }), 
-        __metadata('design:paramtypes', [medida_service_1.MedidaService])
-    ], ModificarMedidaComponent);
-    return ModificarMedidaComponent;
+        __metadata('design:paramtypes', [cliente_service_1.ClienteService])
+    ], ModificarClienteComponent);
+    return ModificarClienteComponent;
 }());
-exports.ModificarMedidaComponent = ModificarMedidaComponent;
-//# sourceMappingURL=modificarmedida.component.js.map
+exports.ModificarClienteComponent = ModificarClienteComponent;
+//# sourceMappingURL=modificarcliente.component.js.map

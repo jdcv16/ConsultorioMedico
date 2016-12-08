@@ -17,20 +17,23 @@ export class AgregarMedidaComponent{
     }
 
     insertarMedida(){
-        this._medidaService.postMedida(this.modelo.nom_medida)
-            .subscribe(result => {
-                if(result === true){
-                    this.messageOK = "La medida se agregó con éxito.";
-                } else {
-                    this.message = "Error!! La medida no pudo ser agregada";
-                }
-            });
-        if(this.message != "")
+        if(this.modelo.nom_medida != undefined)
         {
-            this.hidemessage();
-        }
-        if(this.messageOK != ""){
-            this.hidemessageOK();
+        this._medidaService.postMedida(this.modelo.nom_medida)
+                .subscribe(result => {
+                    if(result === true){
+                        this.messageOK = "La medida se agregó con éxito.";
+                    } else {
+                        this.message = "Error!! La medida no pudo ser agregada";
+                    }
+                });
+            if(this.message != "")
+            {
+                this.hidemessage();
+            }
+            if(this.messageOK != ""){
+                this.hidemessageOK();
+            }
         }
     }
 

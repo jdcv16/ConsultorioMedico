@@ -18,20 +18,22 @@ var AgregarMedidaComponent = (function () {
     }
     AgregarMedidaComponent.prototype.insertarMedida = function () {
         var _this = this;
-        this._medidaService.postMedida(this.modelo.nom_medida)
-            .subscribe(function (result) {
-            if (result === true) {
-                _this.messageOK = "La medida se agregó con éxito.";
+        if (this.modelo.nom_medida != undefined) {
+            this._medidaService.postMedida(this.modelo.nom_medida)
+                .subscribe(function (result) {
+                if (result === true) {
+                    _this.messageOK = "La medida se agregó con éxito.";
+                }
+                else {
+                    _this.message = "Error!! La medida no pudo ser agregada";
+                }
+            });
+            if (this.message != "") {
+                this.hidemessage();
             }
-            else {
-                _this.message = "Error!! La medida no pudo ser agregada";
+            if (this.messageOK != "") {
+                this.hidemessageOK();
             }
-        });
-        if (this.message != "") {
-            this.hidemessage();
-        }
-        if (this.messageOK != "") {
-            this.hidemessageOK();
         }
     };
     AgregarMedidaComponent.prototype.hidemessage = function () {

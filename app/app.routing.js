@@ -10,6 +10,18 @@ var appRoutes = [
         component: clientes_1.ClienteComponent
     },
     {
+        path: 'mostrar-clientes',
+        component: clientes_1.MostrarClientesComponent
+    },
+    {
+        path: 'agregar-cliente',
+        component: clientes_1.AgregarClienteComponent
+    },
+    {
+        path: 'modificar-cliente',
+        component: clientes_1.ModificarClienteComponent
+    },
+    {
         path: 'la-medida',
         component: medidas_1.MedidaComponent
     },
@@ -36,6 +48,10 @@ var appRoutes = [
     {
         path: 'agregar-medicamento',
         component: medicamentos_1.AgregarMedicamentoComponent
+    },
+    {
+        path: 'modificar-medicamento',
+        component: medicamentos_1.ModificarMedicamentoComponent
     },
     {
         path: 'dashboard',

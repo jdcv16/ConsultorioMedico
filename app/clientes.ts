@@ -1,4 +1,5 @@
 export * from './clientes/cliente';
-export * from './clientes/detallecliente.component';
-export * from './clientes/listaclientes.component';
 export * from './clientes/cliente.component';
+export * from './clientes/mostrarclientes.component';
+export * from './clientes/agregarcliente.component';
+export * from './clientes/modificarcliente.component';
