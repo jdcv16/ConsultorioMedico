@@ -3,6 +3,7 @@ var router_1 = require('@angular/router');
 var clientes_1 = require('./clientes');
 var medidas_1 = require('./medidas');
 var medicamentos_1 = require('./medicamentos');
+var servicios_1 = require('./servicios');
 var dashboard_1 = require('./dashboard');
 var appRoutes = [
     {
@@ -52,6 +53,14 @@ var appRoutes = [
     {
         path: 'modificar-medicamento',
         component: medicamentos_1.ModificarMedicamentoComponent
+    },
+    {
+        path: 'mostrar-servicios',
+        component: servicios_1.MostrarServiciosComponent
+    },
+    {
+        path: 'agregar-servicio',
+        component: servicios_1.AgregarServicioComponent
     },
     {
         path: 'dashboard',

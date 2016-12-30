@@ -1,34 +1,34 @@
 <div class="panel panel-primary">
-        <div class="panel-heading">
-            <h1 class="panel-title">Modificar Medida</h1>
-        </div>
-        <div class="panel-body">
-            <form name="forma_modificarmedida" action="" method="POST" action="">
-                <div class="form-group">
-                    <label for="txtid">Id Medida</label>
-                    <input type="text" maxlength="11" size="15" placeholder="Ej: 1" 
-                    [(ngModel)]="modelo.id_medida" autocomplete="off" name="txtid" id="txtid"
-                    class="form-control" style="text-transform:uppercase;" 
-                    onkeyup="javascript:this.value=this.value.toUpperCase();" required>
-                </div>
-                <div class="form-group">
-                    <label for="txtMedida">Nombre de Medida</label>
-                    <input type="text" maxlength="50" size="15" placeholder="Ej: Cucharada" 
-                    [(ngModel)]="modelo.nom_medida" autocomplete="off" name="txtMedida" 
-                    id="txtMedida" class="form-control" style="text-transform:uppercase;" 
-                    onkeyup="javascript:this.value=this.value.toUpperCase();" required>
-                </div>
-
-                <div>
-                    <div class="btn-group">
-                         <input class="btn btn-success" type="submit" (click)="modificarMedida();" value="Modificar">
-                         <button class="btn btn-default" type="reset">LIMPIAR CAMPOS</button>
-                    </div>
-                    <br>
-                    <br>
-                    <div *ngIf="messageOK" class="alert alert-success">{{messageOK}}</div>
-                    <div *ngIf="message" class="alert alert-danger">{{message}}</div>
-                </div>
-            </form>
-        </div>
+    <div class="panel-heading">
+        <h1 class="panel-title">Modificar Medida</h1>
     </div>
+    <div class="panel-body">
+        <form name="forma_modificarmedida" action="" method="POST" action="">
+            <div class="form-group">
+                <label for="txtid">Id Medida</label>
+                <input type="text" maxlength="11" size="15" placeholder="Ej: 1" 
+                [(ngModel)]="modelo.id_medida" autocomplete="off" name="txtid" id="txtid"
+                class="form-control" style="text-transform:uppercase;" 
+                onkeyup="javascript:this.value=this.value.toUpperCase();" required>
+            </div>
+            <div class="form-group">
+                <label for="txtMedida">Nombre de Medida</label>
+                <input type="text" maxlength="50" size="15" placeholder="Ej: Cucharada" 
+                [(ngModel)]="modelo.nom_medida" autocomplete="off" name="txtMedida" 
+                id="txtMedida" class="form-control" style="text-transform:uppercase;" 
+                onkeyup="javascript:this.value=this.value.toUpperCase();" required>
+            </div>
+
+            <div>
+                <div class="btn-group">
+                    <input class="btn btn-success" type="submit" (click)="modificarMedida();" value="Modificar">
+                    <button class="btn btn-default" type="reset">LIMPIAR CAMPOS</button>
+                </div>
+                <br>
+                <br>
+                <div *ngIf="messageOK" class="alert alert-success">{{messageOK}}</div>
+                <div *ngIf="message" class="alert alert-danger">{{message}}</div>
+            </div>
+        </form>
+    </div>
+</div>

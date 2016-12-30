@@ -1,4 +1,3 @@
-
 <div class="panel panel-primary">
     <div class="panel-heading">
         <h1 class="panel-title">Mostrar Medicamentos</h1>
@@ -18,7 +17,7 @@
                     <td>{{medicamento.id_medicamento}}</td>
                     <td>{{medicamento.nom_medicamento}}</td>
                     <td>{{medicamento.nom_generico}}</td>
-                    <td>{{medidas[i].nom_medida}}</td>
+                    <td>{{medidas[medicamento.tipo_medida].nom_medida}}</td>
                 </tr>
             </tbody>
         </table>

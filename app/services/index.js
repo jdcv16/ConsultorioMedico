@@ -5,4 +5,5 @@ function __export(m) {
 __export(require('./medida.service'));
 __export(require('./medicamento.service'));
 __export(require('./cliente.service'));
+__export(require('./servicio.service'));
 //# sourceMappingURL=index.js.map

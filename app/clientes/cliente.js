@@ -1,13 +1,15 @@
 "use strict";
 var Cliente = (function () {
-    function Cliente(id, nombre_cliente, apellido1, correo_electronico, tel, fecha_nac, apellido2) {
+    function Cliente(id, nom_cliente, ap1_cliente, fecha_nac_cliente, fecha_reg_cliente, tel_cliente, dir_cliente, email_cliente, ap2_cliente) {
         this.id = id;
-        this.nombre_cliente = nombre_cliente;
-        this.apellido1 = apellido1;
-        this.apellido2 = apellido2;
-        this.correo_electronico = correo_electronico;
-        this.tel = tel;
-        this.fecha_nac = fecha_nac;
+        this.nom_cliente = nom_cliente;
+        this.ap1_cliente = ap1_cliente;
+        this.ap2_cliente = ap2_cliente;
+        this.fecha_nac_cliente = fecha_nac_cliente;
+        this.fecha_reg_cliente = fecha_reg_cliente;
+        this.tel_cliente = tel_cliente;
+        this.dir_cliente = dir_cliente;
+        this.email_cliente = email_cliente;
     }
     return Cliente;
 }());

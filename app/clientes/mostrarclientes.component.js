@@ -27,6 +27,44 @@ var MostrarClientesComponent = (function () {
     MostrarClientesComponent.prototype.ngOnInit = function () {
         this.getAllClientes();
     };
+    MostrarClientesComponent.prototype.modificarCliente = function () {
+        var _this = this;
+        if (this.id != 0 && this.nom_cliente != "" && this.ap1_cliente != "" && this.ap2_cliente != "" &&
+            this.fecha_nac_cliente != "" && this.fecha_reg_cliente != "" && this.tel_cliente != "" && this.dir_cliente != "") {
+            this._clienteService.modificarCliente(this.id, this.nom_cliente, this.ap1_cliente, this.ap2_cliente, this.fecha_nac_cliente, this.fecha_reg_cliente, this.tel_cliente, this.dir_cliente)
+                .subscribe(function (result) {
+                if (result === true) {
+                    _this.message = '';
+                    _this.messageOK = 'El cliente se modificó con éxito.';
+                    _this.ngOnInit();
+                }
+                else {
+                    _this.messageOK = '';
+                    _this.message = 'Error!! El cliente no pudo ser modificada';
+                }
+            });
+            this.hidemessage();
+            this.hidemessageOK();
+        }
+    };
+    MostrarClientesComponent.prototype.hidemessage = function () {
+        var _this = this;
+        this.timer = setTimeout(function () { return _this.message = ""; }, 3000);
+    };
+    MostrarClientesComponent.prototype.hidemessageOK = function () {
+        var _this = this;
+        this.timer = setTimeout(function () { return _this.messageOK = ""; }, 3000);
+    };
+    MostrarClientesComponent.prototype.cargarmodificar = function (i) {
+        this.id = this.clientes[i].id;
+        this.nom_cliente = this.clientes[i].nom_cliente;
+        this.ap1_cliente = this.clientes[i].ap1_cliente;
+        this.ap2_cliente = this.clientes[i].ap2_cliente;
+        this.fecha_nac_cliente = this.clientes[i].fecha_nac_cliente;
+        this.fecha_reg_cliente = this.clientes[i].fecha_reg_cliente;
+        this.tel_cliente = this.clientes[i].tel_cliente;
+        this.dir_cliente = this.clientes[i].dir_cliente;
+    };
     MostrarClientesComponent = __decorate([
         core_1.Component({
             selector: 'mostrar-clientes',

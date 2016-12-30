@@ -5,10 +5,11 @@ import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { HttpModule } from '@angular/http';
 import { routing } from './app.routing';
-import { MedidaService, MedicamentoService, ClienteService} from './services/index';
+import { MedidaService, MedicamentoService, ClienteService,ServicioService} from './services/index';
 import { ClienteComponent,MostrarClientesComponent,AgregarClienteComponent,ModificarClienteComponent} from './clientes'; 
 import { MedidaComponent, ModificarMedidaComponent, AgregarMedidaComponent, MostrarMedidasComponent} from './medidas';
 import { MedicamentoComponent, MostrarMedicamentosComponent, AgregarMedicamentoComponent, ModificarMedicamentoComponent} from './medicamentos';
+import { MostrarServiciosComponent,AgregarServicioComponent } from './servicios';
 import { DashboardComponent } from './dashboard';
 
 @NgModule({
@@ -27,8 +28,10 @@ declarations: [
     MostrarMedicamentosComponent,
     AgregarMedicamentoComponent,
     ModificarMedicamentoComponent,
+    MostrarServiciosComponent,
+    AgregarServicioComponent,
     DashboardComponent],
-providers:[MedidaService, MedicamentoService, ClienteService],
+providers:[MedidaService, MedicamentoService, ClienteService,ServicioService],
 bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,4 @@
-<div class="losdivs1">
+<header>
     <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -23,7 +23,7 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
     </nav>
-</div>
+</header>
 <div class="losdivs2">
     <div id="wrapper">
 
@@ -34,13 +34,11 @@
                 <ul class="sub-menu collapse" id="clientes">
                     <li><a routerLink="/agregar-cliente">Agregar Cliente</a></li>
                     <li><a routerLink="/mostrar-clientes">Mostrar Clientes</a></li>
-                    <li><a routerLink="/modificar-cliente">Modificar Cliente</a></li>
                 </ul>
                 <li data-toggle="collapse" data-target="#medidas" class="collapsed active"><a>Medidas<span class="arrow"></span></a></li>
                 <ul class="sub-menu collapse" id="medidas">
                     <li><a routerLink="/agregar-medida">Agregar Medida</a></li>
                     <li><a routerLink="/mostrar-medidas">Mostrar Medidas</a></li>
-                    <li><a routerLink="/modificar-medida">Modificar Medida</a></li>
                 </ul>
                 <li data-toggle="collapse" data-target="#medicamentos" class="collapsed active"><a>Medicamentos<span class="arrow"></span></a></li>
                 <ul class="sub-menu collapse" id="medicamentos">
@@ -48,8 +46,13 @@
                     <li><a routerLink="/mostrar-medicamentos">Mostrar Medicamentos</a></li>
                     <li><a routerLink="/modificar-medicamento">Modificar Medicamento</a></li>
                 </ul>
+                <li data-toggle="collapse" data-target="#servicios" class="collapsed active"><a>Servicios<span class="arrow"></span></a></li>
+                <ul class="sub-menu collapse" id="servicios">
+                    <li><a routerLink="/agregar-servicio">Agregar Servicio</a></li>
+                    <li><a routerLink="/mostrar-servicios">Mostrar Servicios</a></li>
+                </ul>
                 <li>
-                    <a srouterLink="">Contact</a>
+                    <a routerLink="">Contact</a>
                 </li>
             </ul>
         </div>

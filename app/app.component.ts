@@ -4,6 +4,7 @@ import { Config } from './config.service';
 import { Cliente, ClienteComponent, MostrarClientesComponent, AgregarClienteComponent, ModificarClienteComponent } from './clientes';
 import { Medida, MedidaComponent, ModificarMedidaComponent } from './medidas';
 import { MedicamentoComponent, MostrarMedicamentosComponent,AgregarMedicamentoComponent, ModificarMedicamentoComponent} from './medicamentos';
+import { MostrarServiciosComponent, AgregarServicioComponent } from './servicios';
 import { DashboardComponent } from './dashboard';
 @Component({
 selector: 'mi-app',
