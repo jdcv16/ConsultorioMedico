@@ -19,9 +19,12 @@ var ClienteService = (function () {
     ClienteService.prototype.getAllClientes = function () {
         return this.http.get(this.endpoint_url).map(function (res) { return res.json(); });
     };
-    ClienteService.prototype.postCliente = function (nom, ap1, ap2, fechanac, fechahoy, tel, dir) {
-        var body = JSON.stringify({ "nom_cliente": nom, "ap1_cliente": ap1, "ap2_cliente": ap2,
-            "fecha_nac_cliente": fechanac, "fecha_reg_cliente": fechahoy, "tel_cliente": tel, "dir_cliente": dir });
+    ClienteService.prototype.getClientesByDetails = function (detalle) {
+        return this.http.get("http://localhost/api_cmo/clientesnombre" + '/' + detalle).map(function (res) { return res.json(); });
+    };
+    ClienteService.prototype.postCliente = function (cve, nom, ap1, ap2, fechanac, fechahoy, tel, email, dir) {
+        var body = JSON.stringify({ "cve_cliente": cve, "nom_cliente": nom, "ap1_cliente": ap1, "ap2_cliente": ap2,
+            "fecha_nac_cliente": fechanac, "fecha_reg_cliente": fechahoy, "tel_cliente": tel, "email_cliente": email, "dir_cliente": dir });
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         headers.append('Access-Control-Allow-Origin', 'http://127.0.0.1/');
         headers.append('Access-Control-Allow-Methods', 'POST');
@@ -30,7 +33,7 @@ var ClienteService = (function () {
         options.headers;
         return this.http.post(this.endpoint_url, body, options)
             .map(function (response) {
-            if (response.json().id != null) {
+            if (response.json().cve_cliente != null) {
                 return true;
             }
             else {
@@ -38,16 +41,16 @@ var ClienteService = (function () {
             }
         });
     };
-    ClienteService.prototype.modificarCliente = function (id, nom, ap1, ap2, fechanac, fechahoy, tel, dir) {
-        var body = JSON.stringify({ "nom_cliente": nom, "ap1_cliente": ap1, "ap2_cliente": ap2,
-            "fecha_nac_cliente": fechanac, "fecha_reg_cliente": fechahoy, "tel_cliente": tel, "dir_cliente": dir });
+    ClienteService.prototype.modificarCliente = function (cve, nom, ap1, ap2, fechanac, fechahoy, tel, email, dir) {
+        var body = JSON.stringify({ "cve_cliente": cve, "nom_cliente": nom, "ap1_cliente": ap1, "ap2_cliente": ap2,
+            "fecha_nac_cliente": fechanac, "fecha_reg_cliente": fechahoy, "tel_cliente": tel, "email_cliente": email, "dir_cliente": dir });
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         headers.append('Access-Control-Allow-Origin', 'http://127.0.0.1:12345/');
         headers.append('Access-Control-Allow-Methods', 'PUT');
         headers.append('Access-Control-Allow-Headers', 'X-Requested-With,Content-Type');
         var options = new http_1.RequestOptions({ headers: headers });
         options.headers;
-        return this.http.put(this.endpoint_url + '/' + id, body, options)
+        return this.http.put(this.endpoint_url + '/' + cve, body, options)
             .map(function (response) {
             if (response.json().status) {
                 return true;

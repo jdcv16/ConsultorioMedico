@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { ClienteService } from '../services/cliente.service';
+import { ClienteService,LoginService } from '../services/index';
 
 @Component({
     selector:'agregar-cliente',
-    templateUrl: 'app/clientes/agregarcliente.component.html'
+    templateUrl: 'app/clientes/agregarcliente.component.html',
+    styleUrls: ['app/clientes/agregarcliente.component.css']
 })
 
 export class AgregarClienteComponent{
@@ -11,20 +12,30 @@ export class AgregarClienteComponent{
     modelo: any = {};
     public message;
     public messageOK;
-    constructor(private _clienteService: ClienteService){
+    public eltipodeusuario: string;
+    constructor(private _clienteService: ClienteService, private _loginService: LoginService){
         this._clienteService = _clienteService;
+        this._loginService = _loginService;
     }
 
     insertarCliente(){
-        if(this.modelo.nom_cliente != undefined && this.modelo.ap1_cliente != undefined && this.modelo.ap2_cliente != undefined
-        && this.modelo.fecha_nac_cliente != undefined && this.modelo.fecha_reg_cliente != undefined && this.modelo.tel_cliente != undefined
-        && this.modelo.dir_cliente != undefined)
-        {
-        this._clienteService.postCliente(this.modelo.nom_cliente,this.modelo.ap1_cliente,this.modelo.ap2_cliente,
-        this.modelo.fecha_nac_cliente,this.modelo.fecha_reg_cliente,this.modelo.tel_cliente,this.modelo.dir_cliente)
+        this.eltipodeusuario = "CLIENTE";
+        if(this.modelo.cve_usuario != undefined && this.modelo.nom_cliente != undefined && this.modelo.ap1_cliente != undefined && 
+        this.modelo.fecha_nac_cliente != undefined && this.modelo.fecha_reg_cliente != undefined && this.modelo.tel_cliente != undefined && 
+        this.modelo.email_cliente!=undefined && this.modelo.dir_cliente != undefined && this.modelo.password_usuario != undefined){
+        this._clienteService.postCliente(this.modelo.cve_usuario,this.modelo.nom_cliente,this.modelo.ap1_cliente,
+        this.modelo.ap2_cliente,this.modelo.fecha_nac_cliente,this.modelo.fecha_reg_cliente,
+        this.modelo.tel_cliente,this.modelo.email_cliente,this.modelo.dir_cliente)
                 .subscribe(result => {
                     if(result === true){
-                        this.messageOK = "El cliente se agregó con éxito.";
+                        this._loginService.postUsuario(this.modelo.cve_usuario,this.eltipodeusuario,this.modelo.password_usuario).subscribe(result => {
+                            if(result === true){
+                                this.messageOK = "El Cliente se agregó con éxito.";
+                            }
+                            else{
+                                this.message = "Error!! El Cliente no pudo ser agregado";
+                            }
+                        });
                     } else {
                         this.message = "Error!! El cliente no pudo ser agregada";
                     }
@@ -36,6 +47,9 @@ export class AgregarClienteComponent{
             if(this.messageOK != ""){
                 this.hidemessageOK();
             }
+        }
+        else{
+            alert("Ingrese todos los campos del formulario");
         }
     }
 

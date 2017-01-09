@@ -1,0 +1,48 @@
+<h2>Reporte de Clientes</h2>
+<br>
+<form name="form_reportecliente" action="" method="POST" class="form-inline" role="form">   
+    <div class="form-group">
+        <label for="txt_reporte">INGRESE PARA BUSCAR: </label>
+        <input type="text" maxlength="45" placeholder="NOMBRE O APELLIDOS" 
+        [(ngModel)]="abuscar" autocomplete="off" name="txt_reporte" id="txt_reporte"
+        class="form-control input-sm">
+        <button class="btn btn-success" type="submit" (click)="buscarclientes();">BUSCAR</button>
+        <button class="btn btn-default" type="reset">LIMPIAR BUSQUEDA</button>
+        <input class="btn btn-default" type="button" value="Imprimir Tabla" onclick="javascript:imprSelec('tablaparaimprimir');function imprSelec(muestra)
+         {var ficha=document.getElementById(muestra);var ventimp=window.open(' ','popimpr');ventimp.document.write(ficha.innerHTML);
+         ventimp.document.close();ventimp.print();ventimp.close();};" />
+    </div>
+</form>
+<br>
+<div class="table-reponsive" id="tablaparaimprimir">
+    <table class="table table-bordered table-condensed no-mgn-btm">
+        <thead>
+            <tr>
+                <th>NOMBRE DE USUARIO</th>
+                <th>PASSWORD</th>
+                <th>NOMBRE(S)</th>
+                <th>APELLIDO 1</th>
+                <th>APELLIDO 2</th>
+                <th>FECHA DE NACIMIENTO</th>
+                <th>FECHA DE REGISTRO</th>
+                <th>TELÉFONO</th>
+                <th>EMAIL</th>
+                <th>DIRECCIÓN</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cliente of generateArray(clientes);">
+                <td>{{cliente.cve_cliente}}</td>
+                <td>{{cliente.password_usuario}}</td>
+                <td>{{cliente.nom_cliente}}</td>
+                <td>{{cliente.ap1_cliente}}</td>
+                <td>{{cliente.ap2_cliente}}</td>
+                <td>{{cliente.fecha_nac_cliente}}</td>
+                <td>{{cliente.fecha_reg_cliente}}</td>
+                <th>{{cliente.tel_cliente}}</th>
+                <th>{{cliente.email_cliente}}</th>
+                <td>{{cliente.dir_cliente}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

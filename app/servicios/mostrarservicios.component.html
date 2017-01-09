@@ -1,30 +1,26 @@
+<h2>Mostrar Servicios</h2>
 <br>
-<br>
-<div class="panel panel-primary">
-    <div class="panel-heading">
-        <h1 class="panel-title">Mostrar Servicios</h1>
-    </div>
-    <div class="panel-body">
-        <table class="table table-bordered table-hover no-mgn-btm" >
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>NOMBRE DEL SERVICIO</th>
-                    <th>TARIFA</th>
-                    <th>ACCIÓN</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let servicio of generateArray(servicios); let i=index">
-                    <td>{{servicio.id_servicio}}</td>
-                    <td>{{servicio.nom_servicio}}</td>
-                    <td>{{servicio.tarifa_servicio}}</td>
-                    <td align="center"><span class="label label-success" (click)="cargarmodificar(i);" data-toggle="modal" data-target="#amodificar"><strong>MODIFICAR</strong></span></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+<div class="table-responsive">
+    <table class="table table-bordered table-condensed no-mgn-btm" >
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NOMBRE DEL SERVICIO</th>
+                <th>TARIFA</th>
+                <th>ACCIÓN</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let servicio of generateArray(servicios); let i=index">
+                <td>{{servicio.id_servicio}}</td>
+                <td>{{servicio.nom_servicio}}</td>
+                <td>{{servicio.tarifa_servicio}}</td>
+                <td align="center"><span class="label label-success" (click)="cargarmodificar(i);" data-toggle="modal" data-target="#amodificar"><strong>MODIFICAR</strong></span></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
+
 <!-- Este es el cuerpo del Modal-->
 <div class="modal fade" id="amodificar" role="dialog">
     <div class="modal-dialog">

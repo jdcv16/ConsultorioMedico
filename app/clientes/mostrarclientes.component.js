@@ -29,9 +29,9 @@ var MostrarClientesComponent = (function () {
     };
     MostrarClientesComponent.prototype.modificarCliente = function () {
         var _this = this;
-        if (this.id != 0 && this.nom_cliente != "" && this.ap1_cliente != "" && this.ap2_cliente != "" &&
+        if (this.cve_cliente != "" && this.nom_cliente != "" && this.ap1_cliente != "" &&
             this.fecha_nac_cliente != "" && this.fecha_reg_cliente != "" && this.tel_cliente != "" && this.dir_cliente != "") {
-            this._clienteService.modificarCliente(this.id, this.nom_cliente, this.ap1_cliente, this.ap2_cliente, this.fecha_nac_cliente, this.fecha_reg_cliente, this.tel_cliente, this.dir_cliente)
+            this._clienteService.modificarCliente(this.cve_cliente, this.nom_cliente, this.ap1_cliente, this.ap2_cliente, this.fecha_nac_cliente, this.fecha_reg_cliente, this.tel_cliente, this.email_cliente, this.dir_cliente)
                 .subscribe(function (result) {
                 if (result === true) {
                     _this.message = '';
@@ -56,13 +56,15 @@ var MostrarClientesComponent = (function () {
         this.timer = setTimeout(function () { return _this.messageOK = ""; }, 3000);
     };
     MostrarClientesComponent.prototype.cargarmodificar = function (i) {
-        this.id = this.clientes[i].id;
+        this.cve_cliente = this.clientes[i].cve_cliente;
+        this.password_usuario = this.clientes[i].password_usuario;
         this.nom_cliente = this.clientes[i].nom_cliente;
         this.ap1_cliente = this.clientes[i].ap1_cliente;
         this.ap2_cliente = this.clientes[i].ap2_cliente;
         this.fecha_nac_cliente = this.clientes[i].fecha_nac_cliente;
         this.fecha_reg_cliente = this.clientes[i].fecha_reg_cliente;
         this.tel_cliente = this.clientes[i].tel_cliente;
+        this.email_cliente = this.clientes[i].email_cliente;
         this.dir_cliente = this.clientes[i].dir_cliente;
     };
     MostrarClientesComponent = __decorate([

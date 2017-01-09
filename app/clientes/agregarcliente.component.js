@@ -9,22 +9,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var cliente_service_1 = require('../services/cliente.service');
+var index_1 = require('../services/index');
 var AgregarClienteComponent = (function () {
-    function AgregarClienteComponent(_clienteService) {
+    function AgregarClienteComponent(_clienteService, _loginService) {
         this._clienteService = _clienteService;
+        this._loginService = _loginService;
         this.modelo = {};
         this._clienteService = _clienteService;
+        this._loginService = _loginService;
     }
     AgregarClienteComponent.prototype.insertarCliente = function () {
         var _this = this;
-        if (this.modelo.nom_cliente != undefined && this.modelo.ap1_cliente != undefined && this.modelo.ap2_cliente != undefined
-            && this.modelo.fecha_nac_cliente != undefined && this.modelo.fecha_reg_cliente != undefined && this.modelo.tel_cliente != undefined
-            && this.modelo.dir_cliente != undefined) {
-            this._clienteService.postCliente(this.modelo.nom_cliente, this.modelo.ap1_cliente, this.modelo.ap2_cliente, this.modelo.fecha_nac_cliente, this.modelo.fecha_reg_cliente, this.modelo.tel_cliente, this.modelo.dir_cliente)
+        this.eltipodeusuario = "CLIENTE";
+        if (this.modelo.cve_usuario != undefined && this.modelo.nom_cliente != undefined && this.modelo.ap1_cliente != undefined &&
+            this.modelo.fecha_nac_cliente != undefined && this.modelo.fecha_reg_cliente != undefined && this.modelo.tel_cliente != undefined &&
+            this.modelo.email_cliente != undefined && this.modelo.dir_cliente != undefined && this.modelo.password_usuario != undefined) {
+            this._clienteService.postCliente(this.modelo.cve_usuario, this.modelo.nom_cliente, this.modelo.ap1_cliente, this.modelo.ap2_cliente, this.modelo.fecha_nac_cliente, this.modelo.fecha_reg_cliente, this.modelo.tel_cliente, this.modelo.email_cliente, this.modelo.dir_cliente)
                 .subscribe(function (result) {
                 if (result === true) {
-                    _this.messageOK = "El cliente se agregó con éxito.";
+                    _this._loginService.postUsuario(_this.modelo.cve_usuario, _this.eltipodeusuario, _this.modelo.password_usuario).subscribe(function (result) {
+                        if (result === true) {
+                            _this.messageOK = "El Cliente se agregó con éxito.";
+                        }
+                        else {
+                            _this.message = "Error!! El Cliente no pudo ser agregado";
+                        }
+                    });
                 }
                 else {
                     _this.message = "Error!! El cliente no pudo ser agregada";
@@ -36,6 +46,9 @@ var AgregarClienteComponent = (function () {
             if (this.messageOK != "") {
                 this.hidemessageOK();
             }
+        }
+        else {
+            alert("Ingrese todos los campos del formulario");
         }
     };
     AgregarClienteComponent.prototype.hidemessage = function () {
@@ -49,9 +62,10 @@ var AgregarClienteComponent = (function () {
     AgregarClienteComponent = __decorate([
         core_1.Component({
             selector: 'agregar-cliente',
-            templateUrl: 'app/clientes/agregarcliente.component.html'
+            templateUrl: 'app/clientes/agregarcliente.component.html',
+            styleUrls: ['app/clientes/agregarcliente.component.css']
         }), 
-        __metadata('design:paramtypes', [cliente_service_1.ClienteService])
+        __metadata('design:paramtypes', [index_1.ClienteService, index_1.LoginService])
     ], AgregarClienteComponent);
     return AgregarClienteComponent;
 }());

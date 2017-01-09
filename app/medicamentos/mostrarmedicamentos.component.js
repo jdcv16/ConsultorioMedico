@@ -37,6 +37,40 @@ var MostrarMedicamentosComponent = (function () {
         this.getAllMedidas();
         this.getAllMedicamentos();
     };
+    MostrarMedicamentosComponent.prototype.modificarMedicamento = function () {
+        var _this = this;
+        alert(this.tipo_medida);
+        this._medicamentoService.modificarMedicamento(this.id_medicamento, this.nom_medicamento, this.nom_generico, this.tipo_medida)
+            .subscribe(function (result) {
+            if (result === true) {
+                _this.message = '';
+                _this.messageOK = 'El medicamento se modificó con éxito.';
+                _this.ngOnInit();
+            }
+            else {
+                _this.messageOK = '';
+                _this.message = 'Error!! El medicamento no pudo ser modificado';
+            }
+        });
+        this.hidemessage();
+        this.hidemessageOK();
+    };
+    MostrarMedicamentosComponent.prototype.hidemessage = function () {
+        var _this = this;
+        this.timer = setTimeout(function () { return _this.message = ""; }, 3000);
+    };
+    MostrarMedicamentosComponent.prototype.hidemessageOK = function () {
+        var _this = this;
+        this.timer = setTimeout(function () { return _this.messageOK = ""; }, 3000);
+    };
+    MostrarMedicamentosComponent.prototype.cargarmodificar = function (i) {
+        this.id_medicamento = this.medicamentos[i].id_medicamento;
+        this.nom_medicamento = this.medicamentos[i].nom_medicamento;
+        this.nom_generico = this.medicamentos[i].nom_generico;
+        this.tipo_medida = this.medicamentos[i].tipo_medida;
+        alert(this.medicamentos[i].tipo_medida);
+        //alert(this.medidas[this.medicamentos[i].tipo_medida].id_medida-1);
+    };
     MostrarMedicamentosComponent = __decorate([
         core_1.Component({
             selector: 'mostrar-medicamentos',

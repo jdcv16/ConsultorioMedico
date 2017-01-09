@@ -1,41 +1,42 @@
+<h2>Mostrar Clientes</h2>
 <br>
-<div class="panel panel-primary">
-    <div class="panel-heading">
-        <h1 class="panel-title">Mostrar Clientes</h1>
-    </div>
-    <div class="panel-body">
-        <div class="table-responsive">  
-            <table class="table table-bordered table-hover no-mgn-btm" >
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>NOMBRE(S)</th>
-                        <th>APELLIDO PATERNO</th>
-                        <th>APELLIDO MATERNO</th>
-                        <th>FECHA DE NACIMIENTO</th>
-                        <th>FECHA DE REGISTRO</th>
-                        <th>TELÉFONO</th>
-                        <th>DIRECCIÓN</th>
-                        <th>ACCIÓN</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let cliente of generateArray(clientes); let i=index">
-                        <td>{{cliente.id}}</td>
-                        <td>{{cliente.nom_cliente}}</td>
-                        <td>{{cliente.ap1_cliente}}</td>
-                        <td>{{cliente.ap2_cliente}}</td>
-                        <td>{{cliente.fecha_nac_cliente}}</td>
-                        <td>{{cliente.fecha_reg_cliente}}</td>
-                        <th>{{cliente.tel_cliente}}</th>
-                        <td>{{cliente.dir_cliente}}</td>
-                        <td align="center"><span class="label label-success" (click)="cargarmodificar(i);" data-toggle="modal" data-target="#amodificar"><strong>MODIFICAR</strong></span></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+<div class="table-responsive">  
+    <table class="table table-bordered table-condensed no-mgn-btm">
+        <thead>
+            <tr>
+                <th>NOMBRE DE USUARIO</th>
+                <th>PASSWORD</th>
+                <th>NOMBRE(S)</th>
+                <th>APELLIDO 1</th>
+                <th>APELLIDO 2</th>
+                <th>FECHA DE NACIMIENTO</th>
+                <th>FECHA DE REGISTRO</th>
+                <th>TELÉFONO</th>
+                <th>EMAIL</th>
+                <th>DIRECCIÓN</th>
+                <th>ACCIÓN</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cliente of generateArray(clientes); let i=index">
+                <td>{{cliente.cve_cliente}}</td>
+                <td>{{cliente.password_usuario}}</td>
+                <td>{{cliente.nom_cliente}}</td>
+                <td>{{cliente.ap1_cliente}}</td>
+                <td>{{cliente.ap2_cliente}}</td>
+                <td>{{cliente.fecha_nac_cliente}}</td>
+                <td>{{cliente.fecha_reg_cliente}}</td>
+                <th>{{cliente.tel_cliente}}</th>
+                <th>{{cliente.email_cliente}}</th>
+                <td>{{cliente.dir_cliente}}</td>
+                <td align="center"><span class="label label-success" (click)="cargarmodificar(i);" data-toggle="modal" data-target="#amodificar"><strong>MODIFICAR</strong></span></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
+
+
+
 <!-- Este es el cuerpo del Modal-->
 <div class="modal fade" id="amodificar" role="dialog">
     <div class="modal-dialog">
@@ -52,9 +53,14 @@
                         <div class="form-group">
                             <label for="txtid">Id de Cliente</label>
                             <input type="text" maxlength="11" size="11" placeholder="Ej: 1" 
-                            [(ngModel)]="id" autocomplete="off" name="txtid" id="txtid"
-                            class="form-control" style="text-transform:uppercase;" 
-                            onkeyup="javascript:this.value=this.value.toUpperCase();" disabled>
+                            [(ngModel)]="cve_cliente" autocomplete="off" name="txtid" id="txtid"
+                            class="form-control" disabled>
+                        </div>
+                         <div class="form-group">
+                            <label for="txtcve">Id de Cliente</label>
+                            <input type="text" maxlength="11" size="11" placeholder="Ej: 1" 
+                            [(ngModel)]="password_usuario" autocomplete="off" name="txtcve" id="txtcve"
+                            class="form-control" disabled>
                         </div>
                         <div class="form-group">
                             <label for="txtnom">Nombre(s) del Cliente</label>
@@ -92,7 +98,12 @@
                             autocomplete="off" name="txttel" id="txttel" class="form-control"
                             style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
                         </div>
-                            <div class="form-group">
+                        <div class="form-group">
+                            <label for="txtemail" class="col-lg-3 control-label">Email del Cliente</label>
+                            <input type="email" maxlength="100" size="15" placeholder="tuemail@gmail.com" [(ngModel)]="email_cliente" 
+                            autocomplete="off" name="txtemail" id="txtemail" class="form-control input-sm">
+                        </div>
+                        <div class="form-group">
                             <label for="txtdir">Dirección del Cliente</label>
                             <input type="text" maxlength="100" size="11" placeholder="FUENTE DE POSEIDON #166 PTE. COLONIA MAGISTERIAL" [(ngModel)]="dir_cliente" 
                             autocomplete="off" name="txtdir" id="txtdir" class="form-control"

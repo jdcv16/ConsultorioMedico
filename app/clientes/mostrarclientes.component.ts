@@ -11,17 +11,18 @@ styleUrls: ['app/clientes/mostrarclientes.component.css']
 export class MostrarClientesComponent{
     private timer;
     public clientes: Array<Cliente> = [];
-    id: number;
+    cve_cliente: string;
+    password_usuario: string;
     nom_cliente: string;
     ap1_cliente: string;
     ap2_cliente: string;
     fecha_nac_cliente: string;
     fecha_reg_cliente: string;
     tel_cliente: string;
+    email_cliente: string;
     dir_cliente: string;
     public message;
     public messageOK;
-
     constructor(private _clienteService: ClienteService){
         this._clienteService = _clienteService;
     }
@@ -42,24 +43,24 @@ export class MostrarClientesComponent{
         this.getAllClientes();
     }
 
-        modificarCliente(){
-            if(this.id != 0 && this.nom_cliente != "" && this.ap1_cliente != "" && this.ap2_cliente != "" && 
-            this.fecha_nac_cliente != "" && this.fecha_reg_cliente != "" && this.tel_cliente != "" && this.dir_cliente != ""){
-                this._clienteService.modificarCliente(this.id,this.nom_cliente,this.ap1_cliente,this.ap2_cliente,
-                this.fecha_nac_cliente,this.fecha_reg_cliente,this.tel_cliente,this.dir_cliente)
-                .subscribe( result => {
-                    if(result === true){
-                        this.message = '';
-                        this.messageOK = 'El cliente se modificó con éxito.';
-                        this.ngOnInit();
-                    } else {
-                        this.messageOK = '';
-                        this.message = 'Error!! El cliente no pudo ser modificada';
-                    }
-                });
-                this.hidemessage();
-                this.hidemessageOK();
-            }
+    modificarCliente(){
+        if(this.cve_cliente != "" && this.nom_cliente != "" && this.ap1_cliente != "" && 
+        this.fecha_nac_cliente != "" && this.fecha_reg_cliente != "" && this.tel_cliente != "" && this.dir_cliente != ""){
+            this._clienteService.modificarCliente(this.cve_cliente,this.nom_cliente,this.ap1_cliente,this.ap2_cliente,
+            this.fecha_nac_cliente,this.fecha_reg_cliente,this.tel_cliente,this.email_cliente,this.dir_cliente)
+            .subscribe( result => {
+                if(result === true){
+                    this.message = '';
+                    this.messageOK = 'El cliente se modificó con éxito.';
+                    this.ngOnInit();
+                } else {
+                    this.messageOK = '';
+                    this.message = 'Error!! El cliente no pudo ser modificada';
+                }
+            });
+            this.hidemessage();
+            this.hidemessageOK();
+        }
     }
 
     hidemessage() {
@@ -72,13 +73,15 @@ export class MostrarClientesComponent{
 
     cargarmodificar(i: number)
     {
-        this.id = this.clientes[i].id;
+        this.cve_cliente = this.clientes[i].cve_cliente;
+        this.password_usuario = this.clientes[i].password_usuario;
         this.nom_cliente = this.clientes[i].nom_cliente;
         this.ap1_cliente = this.clientes[i].ap1_cliente;
         this.ap2_cliente = this.clientes[i].ap2_cliente;
         this.fecha_nac_cliente = this.clientes[i].fecha_nac_cliente;
         this.fecha_reg_cliente = this.clientes[i].fecha_reg_cliente;
         this.tel_cliente = this.clientes[i].tel_cliente;
+        this.email_cliente = this.clientes[i].email_cliente;
         this.dir_cliente = this.clientes[i].dir_cliente;
     }
 

@@ -4,6 +4,8 @@ var clientes_1 = require('./clientes');
 var medidas_1 = require('./medidas');
 var medicamentos_1 = require('./medicamentos');
 var servicios_1 = require('./servicios');
+var doctores_1 = require('./doctores');
+var logins_1 = require('./logins');
 var dashboard_1 = require('./dashboard');
 var appRoutes = [
     {
@@ -21,6 +23,10 @@ var appRoutes = [
     {
         path: 'modificar-cliente',
         component: clientes_1.ModificarClienteComponent
+    },
+    {
+        path: 'reporte-clientes',
+        component: clientes_1.ReporteClientesComponent
     },
     {
         path: 'la-medida',
@@ -51,16 +57,24 @@ var appRoutes = [
         component: medicamentos_1.AgregarMedicamentoComponent
     },
     {
-        path: 'modificar-medicamento',
-        component: medicamentos_1.ModificarMedicamentoComponent
-    },
-    {
         path: 'mostrar-servicios',
         component: servicios_1.MostrarServiciosComponent
     },
     {
         path: 'agregar-servicio',
         component: servicios_1.AgregarServicioComponent
+    },
+    {
+        path: 'agregar-doctor',
+        component: doctores_1.AgregarDoctorComponent
+    },
+    {
+        path: 'mostrar-doctores',
+        component: doctores_1.MostrarDoctoresComponent
+    },
+    {
+        path: 'el-login',
+        component: logins_1.LoginComponent
     },
     {
         path: 'dashboard',

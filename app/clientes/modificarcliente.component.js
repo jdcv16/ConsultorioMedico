@@ -18,7 +18,7 @@ var ModificarClienteComponent = (function () {
     }
     ModificarClienteComponent.prototype.modificarCliente = function () {
         var _this = this;
-        this._clienteService.modificarCliente(this.modelo.id_cliente, this.modelo.nom_cliente, this.modelo.ap1_cliente, this.modelo.ap2_cliente, this.modelo.fecha_nac_cliente, this.modelo.fecha_reg_cliente, this.modelo.tel_cliente, this.modelo.dir_cliente)
+        this._clienteService.modificarCliente(this.modelo.id_cliente, this.modelo.nom_cliente, this.modelo.ap1_cliente, this.modelo.ap2_cliente, this.modelo.fecha_nac_cliente, this.modelo.fecha_reg_cliente, this.modelo.tel_cliente, this.modelo.email_cliente, this.modelo.dir_cliente)
             .subscribe(function (result) {
             if (result === true) {
                 _this.message = '';

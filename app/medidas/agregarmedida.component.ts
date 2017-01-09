@@ -4,7 +4,8 @@ import { ModificarMedidaComponent } from '../medidas';
 
 @Component({
     selector:'agregar-medida',
-    templateUrl: 'app/medidas/agregarmedida.component.html'
+    templateUrl: 'app/medidas/agregarmedida.component.html',
+    styleUrls: ['app/medidas/agregarmedida.component.css']
 })
 
 export class AgregarMedidaComponent{

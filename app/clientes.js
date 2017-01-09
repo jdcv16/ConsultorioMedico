@@ -7,4 +7,5 @@ __export(require('./clientes/cliente.component'));
 __export(require('./clientes/mostrarclientes.component'));
 __export(require('./clientes/agregarcliente.component'));
 __export(require('./clientes/modificarcliente.component'));
+__export(require('./clientes/reporteclientes.component'));
 //# sourceMappingURL=clientes.js.map

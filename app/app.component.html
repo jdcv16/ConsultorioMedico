@@ -17,9 +17,9 @@
         <ul class="nav navbar-nav">
             <li><a routerLink="">Home<span class="sr-only">(current)</span></a></li>
         </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Link</a></li>
-        </ul>
+        <div class="nav navbar-nav navbar-right">
+            <el-login></el-login>
+        </div>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
     </nav>
@@ -34,6 +34,13 @@
                 <ul class="sub-menu collapse" id="clientes">
                     <li><a routerLink="/agregar-cliente">Agregar Cliente</a></li>
                     <li><a routerLink="/mostrar-clientes">Mostrar Clientes</a></li>
+                    <li><a routerLink="/reporte-clientes"> Reporte de Clientes</a></li>
+                </ul>
+                <li data-toggle="collapse" data-target="#doctores" class="collapsed active"><a>Doctores<span class="arrow"></span></a></li>
+                <ul class="sub-menu collapse" id="doctores">
+                    <li><a routerLink="/agregar-doctor">Agregar Doctor</a></li>
+                    <li><a routerLink="/mostrar-doctores">Mostrar Doctores</a></li>
+                    <li><a routerLink=""> Reporte de Doctores</a></li>
                 </ul>
                 <li data-toggle="collapse" data-target="#medidas" class="collapsed active"><a>Medidas<span class="arrow"></span></a></li>
                 <ul class="sub-menu collapse" id="medidas">
@@ -44,7 +51,6 @@
                 <ul class="sub-menu collapse" id="medicamentos">
                     <li><a routerLink="/agregar-medicamento">Agregar Medicamento</a></li>
                     <li><a routerLink="/mostrar-medicamentos">Mostrar Medicamentos</a></li>
-                    <li><a routerLink="/modificar-medicamento">Modificar Medicamento</a></li>
                 </ul>
                 <li data-toggle="collapse" data-target="#servicios" class="collapsed active"><a>Servicios<span class="arrow"></span></a></li>
                 <ul class="sub-menu collapse" id="servicios">
@@ -52,7 +58,13 @@
                     <li><a routerLink="/mostrar-servicios">Mostrar Servicios</a></li>
                 </ul>
                 <li>
-                    <a routerLink="">Contact</a>
+                    <a routerLink="">Horario</a>
+                </li>
+                <li>
+                    <a routerLink="">Consultorio</a>
+                </li>
+                <li>
+                    <a routerLink="">Citas</a>
                 </li>
             </ul>
         </div>

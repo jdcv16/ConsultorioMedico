@@ -49,7 +49,8 @@ var AgregarServicioComponent = (function () {
     AgregarServicioComponent = __decorate([
         core_1.Component({
             selector: 'agregar-servicio',
-            templateUrl: 'app/servicios/agregarservicio.component.html'
+            templateUrl: 'app/servicios/agregarservicio.component.html',
+            styleUrls: ['app/servicios/agregarservicio.component.css']
         }), 
         __metadata('design:paramtypes', [servicio_service_1.ServicioService])
     ], AgregarServicioComponent);

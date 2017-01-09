@@ -1,39 +1,45 @@
-<div class="panel panel-primary">
-    <div class="panel-heading">
-        <h1 class="panel-title">Agregar Medicamento</h1>
-    </div>
-    <div class="panel-body">
-        <form name="forma_agregarmedicamento" action="" method="POST" action="">
-        <div class="form-group">
-            <label for="txtMedicamento">Nombre del Medicamento</label>
-            <input type="text" maxlength="45" size="15" placeholder="BELOKEN" [(ngModel)]="modelo.nom_medicamento" 
-            autocomplete="off" name="txtMedicamento" id="txtMedicamento" class="form-control"
-            style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
-        </div>
-        <div class="form-group">
-            <label for="txtGenerico">Nombre Genérico</label>
-            <input type="text" maxlength="45" size="15" placeholder="METOPROLOL" [(ngModel)]="modelo.nom_generico" 
-            autocomplete="off" name="txtGenerico" id="txtGenerico" class="form-control"
-            style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
-        </div>
-        <div class="form-group">
-            <label for="cb_tipomedida">Tipo de Medida</label>
-              <!-- Aqui esta el ejemplo que manda llamar el combobox de las medidas -->
-            <select class="form-control" [(ngModel)]="modelo.tipo_medida" name="cb_tipomedida" id="cb_tipomedida"  required>
-                <option value="{{medida.id_medida}}" *ngFor="let medida of generateArray(medidas)" >{{medida.nom_medida}}</option>
-            </select>
-        </div>
-        <div>
-            <div class="btn-group">
-                <input class="btn btn-success" type="submit" (click)="insertarMedicamento();" value="AGREGAR MEDICAMENTO">
-                <button class="btn btn-default" type="reset">LIMPIAR CAMPOS</button>
-            </div>
-            <br>
-            <br>
-            <div *ngIf="messageOK" class="alert alert-success">{{messageOK}}</div>
-            <div *ngIf="message" class="alert alert-danger">{{message}}</div>
-        </div>
-        </form>
+<h2>Agregar Medicamento</h2>
+<br>
+<form name="forma_agregarmedicamento" action="" method="POST" class="form-horizontal" role="form">
+<div class="form-group">
+    <label for="txtMedicamento" class="col-lg-3 control-label">Nombre del Medicamento</label>
+    <div class="col-lg-8">
+        <input type="text" maxlength="45" size="15" placeholder="BELOKEN" 
+        [(ngModel)]="modelo.nom_medicamento" autocomplete="off" name="txtMedicamento" 
+        id="txtMedicamento" class="form-control" style="text-transform:uppercase;"
+        onkeyup="javascript:this.value=this.value.toUpperCase();" required>
     </div>
 </div>
+<div class="form-group">
+    <label for="txtGenerico" class="col-lg-3 control-label">Nombre Genérico</label>
+    <div class="col-lg-8">
+        <input type="text" maxlength="45" size="15" placeholder="METOPROLOL" 
+        [(ngModel)]="modelo.nom_generico" autocomplete="off" name="txtGenerico" 
+        id="txtGenerico" class="form-control" style="text-transform:uppercase;" 
+        onkeyup="javascript:this.value=this.value.toUpperCase();" required>
+    </div>
+</div>
+<div class="form-group">
+    <label for="cb_tipomedida" class="col-lg-3 control-label">Tipo de Medida</label>
+    <div class="col-lg-8">
+            <!-- Aqui esta el ejemplo que manda llamar el combobox de las medidas -->
+        <select class="form-control" [(ngModel)]="modelo.tipo_medida" name="cb_tipomedida" id="cb_tipomedida"  required>
+            <option value="{{medida.id_medida}}" *ngFor="let medida of generateArray(medidas)" >{{medida.nom_medida}}</option>
+        </select>
+    </div>
+</div>
+<label for="esediv" class="col-lg-3 control-label"></label>
+<div class="col-lg-8" id="esediv">
+    <div class="form-group">
+        <input class="btn btn-success" type="submit" (click)="insertarMedicamento();" value="AGREGAR MEDICAMENTO">
+        <button class="btn btn-default" type="reset">LIMPIAR CAMPOS</button>
+    </div>
+    <div class="form-group">
+        <div *ngIf="messageOK" class="alert alert-success"><br>{{messageOK}}</div>
+        <div *ngIf="message" class="alert alert-danger"><br>{{message}}</div>
+    </div>
+</div>
+</form>
+
+
 

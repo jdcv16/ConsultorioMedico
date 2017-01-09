@@ -12,6 +12,16 @@ var core_1 = require('@angular/core');
 var DashboardComponent = (function () {
     function DashboardComponent() {
     }
+    DashboardComponent.prototype.crearlocal = function () {
+        this.unvalor = "hola";
+        localStorage.setItem("saludo", this.unvalor);
+    };
+    DashboardComponent.prototype.mostrarlocal = function () {
+        alert(localStorage.getItem("saludo"));
+    };
+    DashboardComponent.prototype.destruirlocal = function () {
+        localStorage.removeItem("saludo");
+    };
     DashboardComponent = __decorate([
         core_1.Component({
             selector: 'dashboard',

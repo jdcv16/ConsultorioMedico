@@ -47,7 +47,8 @@ var AgregarMedidaComponent = (function () {
     AgregarMedidaComponent = __decorate([
         core_1.Component({
             selector: 'agregar-medida',
-            templateUrl: 'app/medidas/agregarmedida.component.html'
+            templateUrl: 'app/medidas/agregarmedida.component.html',
+            styleUrls: ['app/medidas/agregarmedida.component.css']
         }), 
         __metadata('design:paramtypes', [medida_service_1.MedidaService])
     ], AgregarMedidaComponent);

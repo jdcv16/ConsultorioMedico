@@ -1,0 +1,88 @@
+<h2>Agregar Doctor</h2>
+<br>
+<form name="forma_agregardoctor" action="" method="POST" class="form-horizontal" role="form">
+    <div class="form-group">
+        <label for="txtnom" class="col-lg-3 control-label">Nombre(s) del Doctor</label>
+        <div class="col-lg-8">
+            <input type="text" maxlength="45" size="15" placeholder="PITO" [(ngModel)]="modelo.nom_doctor" 
+            autocomplete="off" name="txtnom" id="txtnom" class="form-control input-sm"
+            style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="txtap1" class="col-lg-3 control-label">Apellido 1 del Doctor</label>
+        <div class="col-lg-8">
+             <input type="text" maxlength="45" size="15" placeholder="PEREZ" [(ngModel)]="modelo.ap1_doctor" 
+            autocomplete="off" name="txtap1" id="txtap1" class="form-control input-sm"
+            style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="txtap2" class="col-lg-3 control-label">Apellido 2 del Doctor</label>
+        <div class="col-lg-8">
+            <input type="text" maxlength="45" size="15" placeholder="PERAZA" [(ngModel)]="modelo.ap2_doctor" 
+            autocomplete="off" name="txtap2" id="txtap2" class="form-control input-sm"
+            style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" >
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="txtfechanac" class="col-lg-3 control-label">Fecha de Nacimiento del Doctor</label>
+        <div class="col-lg-8">
+            <input type="date" size="15" [(ngModel)]="modelo.fecha_nac_doctor" 
+            autocomplete="off" name="txtfechanac" id="txtfechanac" class="form-control input-sm"
+            style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="txttel" class="col-lg-3 control-label">Teléfono del Doctor</label>
+        <div class="col-lg-8">
+            <input type="text" maxlength="10" size="15" placeholder="6681620312" [(ngModel)]="modelo.tel_doctor" 
+            autocomplete="off" name="txttel" id="txttel" class="form-control input-sm"
+            style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="txtemail" class="col-lg-3 control-label">Email del Doctor</label>
+        <div class="col-lg-8">
+            <input type="email" maxlength="100" size="15" placeholder="tuemail@gmail.com" [(ngModel)]="modelo.email_doctor" 
+            autocomplete="off" name="txtemail" id="txtemail" class="form-control input-sm" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="txtdir" class="col-lg-3 control-label">Dirección del Doctor</label>
+        <div class="col-lg-8">
+            <input type="text" maxlength="100" size="15" placeholder="FUENTE DE POSEIDON #166 PTE. COLONIA MAGISTERIAL" [(ngModel)]="modelo.dir_doctor" 
+            autocomplete="off" name="txtdir" id="txtdir" class="form-control input-sm"
+            style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
+        </div>
+    </div>
+    <hr>
+    <div class="form-group">
+        <label for="txtcveusuario" class="col-lg-3 control-label">Nombre de Usuario: </label>
+        <div class="col-lg-8">
+            <input type="text" maxlength="15" size="15" placeholder="PITO" [(ngModel)]="modelo.cve_usuario" 
+            autocomplete="off" name="txtcveusuario" id="txtcveusuario" class="form-control input-sm" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="txtpassword" class="col-lg-3 control-label">Contraseña: </label>
+        <div class="col-lg-8">
+             <input type="text" maxlength="15" size="15" placeholder="********" [(ngModel)]="modelo.password_usuario" 
+            autocomplete="off" name="txtpassword" id="txtpassword" class="form-control input-sm" required>
+        </div>
+    </div>
+    <label for="esediv" class="col-lg-3 control-label"></label>
+    <div class="col-lg-8" id="esediv">
+        <div class="form-group">
+            <button class="btn btn-success" type="submit" (click)="insertarDoctor();">AGREGAR DOCTOR</button>
+            <button class="btn btn-default" type="reset">LIMPIAR CAMPOS</button>
+        </div>
+        <div class="form-group">
+            <div *ngIf="messageOK" class="alert alert-success"><br>{{messageOK}}</div>
+            <div *ngIf="message" class="alert alert-danger"><br>{{message}}</div>
+        </div>
+    </div>
+</form>
+
+
+

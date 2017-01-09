@@ -1,11 +1,13 @@
 import {ModuleWithProviders} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 
-import {ClienteComponent, MostrarClientesComponent, AgregarClienteComponent,ModificarClienteComponent} from './clientes';
+import {ClienteComponent, MostrarClientesComponent, AgregarClienteComponent,ModificarClienteComponent,ReporteClientesComponent} from './clientes';
 import {MedidaComponent,AgregarMedidaComponent,MostrarMedidasComponent,ModificarMedidaComponent} from './medidas';
-import {MedicamentoComponent,MostrarMedicamentosComponent,AgregarMedicamentoComponent,ModificarMedicamentoComponent} from './medicamentos';
+import {MedicamentoComponent,MostrarMedicamentosComponent,AgregarMedicamentoComponent} from './medicamentos';
 import {MostrarServiciosComponent,AgregarServicioComponent} from './servicios';
+import {AgregarDoctorComponent,MostrarDoctoresComponent} from './doctores';
 import {AppComponent} from './app.component';
+import {LoginComponent} from './logins';
 import {DashboardComponent} from './dashboard';
 
 const appRoutes = [
@@ -24,6 +26,10 @@ const appRoutes = [
 {
     path: 'modificar-cliente',
     component: ModificarClienteComponent
+},
+{
+    path: 'reporte-clientes',
+    component: ReporteClientesComponent
 },
 {
     path: 'la-medida',
@@ -54,16 +60,24 @@ const appRoutes = [
     component: AgregarMedicamentoComponent
 },
 {
-    path: 'modificar-medicamento',
-    component: ModificarMedicamentoComponent
-},
-{
     path: 'mostrar-servicios',
     component: MostrarServiciosComponent
 },
 {
     path:'agregar-servicio',
     component: AgregarServicioComponent
+},
+{
+    path:'agregar-doctor',
+    component: AgregarDoctorComponent
+},
+{
+    path:'mostrar-doctores',
+    component: MostrarDoctoresComponent
+},
+{
+    path:'el-login',
+    component: LoginComponent
 },
 {
     path: 'dashboard',

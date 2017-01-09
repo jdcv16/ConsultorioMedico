@@ -19,6 +19,8 @@ var clientes_1 = require('./clientes');
 var medidas_1 = require('./medidas');
 var medicamentos_1 = require('./medicamentos');
 var servicios_1 = require('./servicios');
+var doctores_1 = require('./doctores');
+var logins_1 = require('./logins');
 var dashboard_1 = require('./dashboard');
 var AppModule = (function () {
     function AppModule() {
@@ -32,6 +34,7 @@ var AppModule = (function () {
                 clientes_1.MostrarClientesComponent,
                 clientes_1.AgregarClienteComponent,
                 clientes_1.ModificarClienteComponent,
+                clientes_1.ReporteClientesComponent,
                 medidas_1.MedidaComponent,
                 medidas_1.MostrarMedidasComponent,
                 medidas_1.ModificarMedidaComponent,
@@ -39,11 +42,13 @@ var AppModule = (function () {
                 medicamentos_1.MedicamentoComponent,
                 medicamentos_1.MostrarMedicamentosComponent,
                 medicamentos_1.AgregarMedicamentoComponent,
-                medicamentos_1.ModificarMedicamentoComponent,
                 servicios_1.MostrarServiciosComponent,
                 servicios_1.AgregarServicioComponent,
+                doctores_1.AgregarDoctorComponent,
+                doctores_1.MostrarDoctoresComponent,
+                logins_1.LoginComponent,
                 dashboard_1.DashboardComponent],
-            providers: [index_1.MedidaService, index_1.MedicamentoService, index_1.ClienteService, index_1.ServicioService],
+            providers: [index_1.MedidaService, index_1.MedicamentoService, index_1.ClienteService, index_1.ServicioService, index_1.DoctorService, index_1.LoginService],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

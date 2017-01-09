@@ -1,13 +1,13 @@
 export class Medicamento{
     id_medicamento: number;
     nom_medicamento: string;
-    descrip_medicamento:string;
+    nom_generico:string;
     tipo_medida: number;
-    constructor(id_medicamento:number,nom_medicamento:string,descrip_medicamento:string,
+    constructor(id_medicamento:number,nom_medicamento:string,nom_generico:string,
     tipo_medida:number){
         this.id_medicamento = id_medicamento;
         this.nom_medicamento = nom_medicamento;
-        this.descrip_medicamento = descrip_medicamento;
+        this.nom_generico = nom_generico;
         this.tipo_medida = tipo_medida;
     }
 }

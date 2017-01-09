@@ -1,27 +1,22 @@
+<h2>Mostrar Medidas</h2>
 <br>
-<br>
-<div class="panel panel-primary">
-    <div class="panel-heading">
-        <h1 class="panel-title">Mostrar Medidas</h1>
-    </div>
-    <div class="panel-body">
-        <table class="table table-bordered table-hover no-mgn-btm" >
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>NOMBRE DE MEDIDA</th>
-                    <th>ACCIÓN</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let medida of generateArray(medidas); let i=index">
-                    <td>{{medida.id_medida}}</td>
-                    <td>{{medida.nom_medida}}</td>
-                    <td align="center"><span class="label label-success" (click)="cargarmodificar(i);" data-toggle="modal" data-target="#amodificar"><strong>MODIFICAR</strong></span></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+<div class="table-responsive">
+    <table class="table table-bordered table-condensed no-mgn-btm" >
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NOMBRE DE MEDIDA</th>
+                <th>ACCIÓN</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let medida of generateArray(medidas); let i=index">
+                <td>{{medida.id_medida}}</td>
+                <td>{{medida.nom_medida}}</td>
+                <td align="center"><span class="label label-success" (click)="cargarmodificar(i);" data-toggle="modal" data-target="#amodificar"><strong>MODIFICAR</strong></span></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 <!-- Este es el cuerpo del Modal-->
 <div class="modal fade" id="amodificar" role="dialog">
