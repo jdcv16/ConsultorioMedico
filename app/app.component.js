@@ -9,12 +9,74 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var index_1 = require('./services/index');
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(_loginService) {
+        this._loginService = _loginService;
+        this.modelo = {};
+        this._loginService = _loginService;
     }
     AppComponent.prototype.onSelectCliente = function (cliente) {
         //console.log(JSON.stringify(cliente));
         this.clienteSeleccionado = cliente;
+    };
+    AppComponent.prototype.hacerlogin = function () {
+        var _this = this;
+        if (this.eseusuario != undefined && this.esacontra != undefined) {
+            this._loginService.getUsuario(this.eseusuario, this.esacontra).subscribe(function (data) {
+                _this.usuario = data;
+                localStorage.setItem("cveu", JSON.stringify(_this.usuario['cve_usuario']));
+                localStorage.setItem("tipou", JSON.stringify(_this.usuario['tipo_usuario']));
+                localStorage.setItem("passu", JSON.stringify(_this.usuario['password_usuario']));
+                if (localStorage.getItem('tipou') != "undefined") {
+                    _this.clavedeusuario = localStorage.getItem('cveu');
+                    _this.tipodeusuario = localStorage.getItem('tipou');
+                    _this.passworddeusuario = localStorage.getItem('passu');
+                    if (localStorage.getItem('tipou') == '"CLIENTE"') {
+                        _this.escliente = true;
+                    }
+                    else {
+                        _this.escliente = false;
+                    }
+                    if (localStorage.getItem('tipou') == '"DOCTOR"') {
+                        _this.esdoctor = true;
+                    }
+                    else {
+                        _this.esdoctor = false;
+                    }
+                    _this.eseusuario = "";
+                    _this.esacontra = "";
+                }
+                else {
+                    localStorage.removeItem('cveu');
+                    localStorage.removeItem('tipou');
+                    localStorage.removeItem('passu');
+                    _this.clavedeusuario = undefined;
+                    _this.tipodeusuario = undefined;
+                    _this.passworddeusuario = undefined;
+                    _this.escliente = false;
+                    _this.esdoctor = false;
+                    _this.OnInit();
+                    alert("Error: Usuario o Contraseña Incorrecta");
+                }
+            }, function (error) { return alert("Error: " + error); });
+        }
+        else {
+            alert(" Ingrese Usuario Y Contraseña");
+        }
+    };
+    AppComponent.prototype.cerrarsesion = function () {
+        localStorage.removeItem('cveu');
+        localStorage.removeItem('tipou');
+        localStorage.removeItem('passu');
+        this.clavedeusuario = undefined;
+        this.tipodeusuario = undefined;
+        this.passworddeusuario = undefined;
+        this.escliente = false;
+        this.esdoctor = false;
+        this.OnInit();
+    };
+    AppComponent.prototype.OnInit = function () {
     };
     AppComponent = __decorate([
         core_1.Component({
@@ -22,7 +84,7 @@ var AppComponent = (function () {
             templateUrl: 'app/app.component.html',
             styleUrls: ['app/app.component.css']
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [index_1.LoginService])
     ], AppComponent);
     return AppComponent;
 }());

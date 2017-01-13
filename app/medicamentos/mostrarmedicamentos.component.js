@@ -39,7 +39,6 @@ var MostrarMedicamentosComponent = (function () {
     };
     MostrarMedicamentosComponent.prototype.modificarMedicamento = function () {
         var _this = this;
-        alert(this.tipo_medida);
         this._medicamentoService.modificarMedicamento(this.id_medicamento, this.nom_medicamento, this.nom_generico, this.tipo_medida)
             .subscribe(function (result) {
             if (result === true) {
@@ -68,7 +67,6 @@ var MostrarMedicamentosComponent = (function () {
         this.nom_medicamento = this.medicamentos[i].nom_medicamento;
         this.nom_generico = this.medicamentos[i].nom_generico;
         this.tipo_medida = this.medicamentos[i].tipo_medida;
-        alert(this.medicamentos[i].tipo_medida);
         //alert(this.medidas[this.medicamentos[i].tipo_medida].id_medida-1);
     };
     MostrarMedicamentosComponent = __decorate([

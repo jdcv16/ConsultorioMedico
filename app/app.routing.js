@@ -5,6 +5,7 @@ var medidas_1 = require('./medidas');
 var medicamentos_1 = require('./medicamentos');
 var servicios_1 = require('./servicios');
 var doctores_1 = require('./doctores');
+var consultorios_1 = require('./consultorios');
 var logins_1 = require('./logins');
 var dashboard_1 = require('./dashboard');
 var appRoutes = [
@@ -71,6 +72,26 @@ var appRoutes = [
     {
         path: 'mostrar-doctores',
         component: doctores_1.MostrarDoctoresComponent
+    },
+    {
+        path: 'reporte-doctores',
+        component: doctores_1.ReporteDoctoresComponent
+    },
+    {
+        path: 'agregar-consultorio',
+        component: consultorios_1.AgregarConsultorioComponent
+    },
+    {
+        path: 'mostrar-consultorios',
+        component: consultorios_1.MostrarConsultoriosComponent
+    },
+    {
+        path: 'asignar-consultorio',
+        component: consultorios_1.AsignarConsultorioComponent
+    },
+    {
+        path: 'mostrar-asignaciones',
+        component: consultorios_1.MostrarAsignacionesComponent
     },
     {
         path: 'el-login',

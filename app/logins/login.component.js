@@ -34,6 +34,11 @@ var LoginComponent = (function () {
             alert("Ingrese el nombre de usuario y/o contraseña");
         }
     };
+    LoginComponent.prototype.cerrarsesion = function () {
+        localStorage.removeItem('cveu');
+        localStorage.removeItem('tipou');
+        localStorage.removeItem('passu');
+    };
     LoginComponent = __decorate([
         core_1.Component({
             selector: 'el-login',

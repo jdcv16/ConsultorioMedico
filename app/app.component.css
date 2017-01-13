@@ -2,6 +2,11 @@ router-outlet{
     margin-top: 20px;
 }
 
+.navbar-right{
+    padding:10px;
+}
+
+
 /*
 .losdivs1{
     float: left;

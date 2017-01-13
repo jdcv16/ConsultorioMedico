@@ -20,7 +20,7 @@ var DoctorService = (function () {
         return this.http.get(this.endpoint_url).map(function (res) { return res.json(); });
     };
     DoctorService.prototype.getDoctoresByDetails = function (detalle) {
-        return this.http.get("http://localhost/api_cmo/doctoresnombre" + '/' + detalle).map(function (res) { return res.json(); });
+        return this.http.get(this.endpoint_url + '/' + detalle).map(function (res) { return res.json(); });
     };
     DoctorService.prototype.postDoctor = function (cve, nom, ap1, ap2, fechanac, tel, email, dir) {
         var body = JSON.stringify({ "cve_doctor": cve, "nom_doctor": nom, "ap1_doctor": ap1, "ap2_doctor": ap2,

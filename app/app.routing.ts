@@ -5,7 +5,8 @@ import {ClienteComponent, MostrarClientesComponent, AgregarClienteComponent,Modi
 import {MedidaComponent,AgregarMedidaComponent,MostrarMedidasComponent,ModificarMedidaComponent} from './medidas';
 import {MedicamentoComponent,MostrarMedicamentosComponent,AgregarMedicamentoComponent} from './medicamentos';
 import {MostrarServiciosComponent,AgregarServicioComponent} from './servicios';
-import {AgregarDoctorComponent,MostrarDoctoresComponent} from './doctores';
+import {AgregarDoctorComponent,MostrarDoctoresComponent,ReporteDoctoresComponent} from './doctores';
+import {AgregarConsultorioComponent,MostrarConsultoriosComponent,AsignarConsultorioComponent,MostrarAsignacionesComponent} from './consultorios';
 import {AppComponent} from './app.component';
 import {LoginComponent} from './logins';
 import {DashboardComponent} from './dashboard';
@@ -74,6 +75,26 @@ const appRoutes = [
 {
     path:'mostrar-doctores',
     component: MostrarDoctoresComponent
+},
+{
+    path:'reporte-doctores',
+    component: ReporteDoctoresComponent
+},
+{
+    path:'agregar-consultorio',
+    component: AgregarConsultorioComponent
+},
+{
+    path:'mostrar-consultorios',
+    component: MostrarConsultoriosComponent
+},
+{
+    path:'asignar-consultorio',
+    component: AsignarConsultorioComponent
+},
+{
+    path:'mostrar-asignaciones',
+    component: MostrarAsignacionesComponent
 },
 {
     path:'el-login',

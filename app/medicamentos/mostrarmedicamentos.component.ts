@@ -52,7 +52,6 @@ export class MostrarMedicamentosComponent{
     }
 
     modificarMedicamento(){
-        alert(this.tipo_medida);
         this._medicamentoService.modificarMedicamento(this.id_medicamento,this.nom_medicamento,this.nom_generico,this.tipo_medida)
         .subscribe( result => {
             if(result === true){
@@ -82,7 +81,6 @@ export class MostrarMedicamentosComponent{
         this.nom_medicamento = this.medicamentos[i].nom_medicamento;
         this.nom_generico = this.medicamentos[i].nom_generico;
         this.tipo_medida = this.medicamentos[i].tipo_medida;
-        alert(this.medicamentos[i].tipo_medida);
         //alert(this.medidas[this.medicamentos[i].tipo_medida].id_medida-1);
     }
 

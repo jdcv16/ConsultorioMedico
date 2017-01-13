@@ -4,3 +4,6 @@ export * from './cliente.service';
 export * from './servicio.service';
 export * from './doctor.service';
 export * from './login.service';
+export * from './consultorio.service';
+export * from './turno.service';
+export * from './asignacion.service';

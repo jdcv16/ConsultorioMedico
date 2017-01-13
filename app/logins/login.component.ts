@@ -34,4 +34,10 @@ export class LoginComponent {
             alert("Ingrese el nombre de usuario y/o contraseña");
         }
     }
+
+    cerrarsesion(){
+        localStorage.removeItem('cveu');
+        localStorage.removeItem('tipou');
+        localStorage.removeItem('passu');
+    }
 }

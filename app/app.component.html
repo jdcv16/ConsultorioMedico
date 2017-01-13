@@ -18,7 +18,21 @@
             <li><a routerLink="">Home<span class="sr-only">(current)</span></a></li>
         </ul>
         <div class="nav navbar-nav navbar-right">
-            <el-login></el-login>
+            <span *ngIf="clavedeusuario == undefined"> 
+                <input type="text" maxlength="15" size="15" placeholder="USUARIO" 
+                [(ngModel)]="eseusuario" autocomplete="off" name="txtusuario" id="txtusuario"
+                required>
+            </span>
+            <span  *ngIf="clavedeusuario == undefined">&nbsp;</span>
+            <span *ngIf="clavedeusuario == undefined">
+                 <input type="password" maxlength="15" size="15" placeholder="CONTRASEÑA" 
+                [(ngModel)]="esacontra" autocomplete="off" name="txtcve" id="txtcve"
+                required>
+            </span>
+            <span  *ngIf="clavedeusuario == undefined">&nbsp;</span>
+            <span class="btn btn-success btn-sm" *ngIf="clavedeusuario == NULL" (click)="hacerlogin();" >INICIAR SESIÓN</span>
+            <span *ngIf="clavedeusuario != NULL" style="color:white;">BIENVENIDO: {{clavedeusuario}} &nbsp;</span>
+            <span class="btn btn-primary btn-sm" *ngIf="clavedeusuario != NULL"(click)="cerrarsesion();" routerLink="">CERRAR SESIÓN</span>
         </div>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -26,46 +40,45 @@
 </header>
 <div class="losdivs2">
     <div id="wrapper">
-
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li data-toggle="collapse" data-target="#clientes" class="collapsed active"><a>Clientes<span class="arrow"></span></a></li>
-                <ul class="sub-menu collapse" id="clientes">
-                    <li><a routerLink="/agregar-cliente">Agregar Cliente</a></li>
-                    <li><a routerLink="/mostrar-clientes">Mostrar Clientes</a></li>
-                    <li><a routerLink="/reporte-clientes"> Reporte de Clientes</a></li>
-                </ul>
-                <li data-toggle="collapse" data-target="#doctores" class="collapsed active"><a>Doctores<span class="arrow"></span></a></li>
-                <ul class="sub-menu collapse" id="doctores">
-                    <li><a routerLink="/agregar-doctor">Agregar Doctor</a></li>
-                    <li><a routerLink="/mostrar-doctores">Mostrar Doctores</a></li>
-                    <li><a routerLink=""> Reporte de Doctores</a></li>
-                </ul>
-                <li data-toggle="collapse" data-target="#medidas" class="collapsed active"><a>Medidas<span class="arrow"></span></a></li>
-                <ul class="sub-menu collapse" id="medidas">
-                    <li><a routerLink="/agregar-medida">Agregar Medida</a></li>
-                    <li><a routerLink="/mostrar-medidas">Mostrar Medidas</a></li>
-                </ul>
-                <li data-toggle="collapse" data-target="#medicamentos" class="collapsed active"><a>Medicamentos<span class="arrow"></span></a></li>
-                <ul class="sub-menu collapse" id="medicamentos">
-                    <li><a routerLink="/agregar-medicamento">Agregar Medicamento</a></li>
-                    <li><a routerLink="/mostrar-medicamentos">Mostrar Medicamentos</a></li>
-                </ul>
-                <li data-toggle="collapse" data-target="#servicios" class="collapsed active"><a>Servicios<span class="arrow"></span></a></li>
-                <ul class="sub-menu collapse" id="servicios">
-                    <li><a routerLink="/agregar-servicio">Agregar Servicio</a></li>
-                    <li><a routerLink="/mostrar-servicios">Mostrar Servicios</a></li>
-                </ul>
-                <li>
-                    <a routerLink="">Horario</a>
-                </li>
-                <li>
-                    <a routerLink="">Consultorio</a>
-                </li>
-                <li>
-                    <a routerLink="">Citas</a>
-                </li>
+                <div *ngIf="esdoctor == true">   
+                    <li data-toggle="collapse" data-target="#clientes" class="collapsed active"><a>Clientes<span class="arrow"></span></a></li>
+                    <ul class="sub-menu collapse" id="clientes">
+                        <li><a routerLink="/agregar-cliente">Agregar Cliente</a></li>
+                        <li><a routerLink="/mostrar-clientes">Mostrar Clientes</a></li>
+                        <li><a routerLink="/reporte-clientes"> Reporte de Clientes</a></li>
+                    </ul>
+                    <li data-toggle="collapse" data-target="#doctores" class="collapsed active"><a>Doctores<span class="arrow"></span></a></li>
+                    <ul class="sub-menu collapse" id="doctores">
+                        <li><a routerLink="/agregar-doctor">Agregar Doctor</a></li>
+                        <li><a routerLink="/mostrar-doctores">Mostrar Doctores</a></li>
+                        <li><a routerLink="/reporte-doctores"> Reporte de Doctores</a></li>
+                    </ul>
+                    <li data-toggle="collapse" data-target="#consultorios" class="collapsed active"><a>Consultorios<span class="arrow"></span></a></li>
+                    <ul class="sub-menu collapse" id="consultorios">
+                        <li><a routerLink="/agregar-consultorio">Agregar Consultorio</a></li>
+                        <li><a routerLink="/mostrar-consultorios">Mostrar Consultorios</a></li>
+                        <li><a routerLink="/asignar-consultorio">Asignar Consultorio</a></li>
+                        <li><a routerLink="/mostrar-asignaciones">Mostrar Asignaciones</a></li>
+                    </ul>
+                    <li data-toggle="collapse" data-target="#medidas" class="collapsed active"><a>Medidas<span class="arrow"></span></a></li>
+                    <ul class="sub-menu collapse" id="medidas">
+                        <li><a routerLink="/agregar-medida">Agregar Medida</a></li>
+                        <li><a routerLink="/mostrar-medidas">Mostrar Medidas</a></li>
+                    </ul>
+                    <li data-toggle="collapse" data-target="#medicamentos" class="collapsed active"><a>Medicamentos<span class="arrow"></span></a></li>
+                    <ul class="sub-menu collapse" id="medicamentos">
+                        <li><a routerLink="/agregar-medicamento">Agregar Medicamento</a></li>
+                        <li><a routerLink="/mostrar-medicamentos">Mostrar Medicamentos</a></li>
+                    </ul>
+                    <li data-toggle="collapse" data-target="#servicios" class="collapsed active"><a>Servicios<span class="arrow"></span></a></li>
+                    <ul class="sub-menu collapse" id="servicios">
+                        <li><a routerLink="/agregar-servicio">Agregar Servicio</a></li>
+                        <li><a routerLink="/mostrar-servicios">Mostrar Servicios</a></li>
+                    </ul>
+                </div>
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->

@@ -1,0 +1,25 @@
+<h2>Agregar Consultorio</h2>
+<br>
+<form name="forma_agregarconsultorio" action="" method="POST" class="form-horizontal" role="form">
+<div class="form-group">
+    <label for="txtconsultorio" class="col-lg-3 control-label">Nombre de Consultorio</label>
+    <div  class="col-lg-8">
+        <input type="text" maxlength="20" size="15" placeholder="Ej: Consultorio 1" [(ngModel)]="modelo.nom_consultorio" 
+        autocomplete="off" name="txtconsultorio" id="txtconsultorio" class="form-control"
+        style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
+    </div>
+</div>
+<label for="esediv" class="col-lg-3 control-label"></label>
+<div class="col-lg-8" id="esediv">
+    <div class="form-group">
+        <input class="btn btn-success" type="submit" (click)="insertarConsultorio();" value="AGREGAR CONSULTORIO">
+        <button class="btn btn-default" type="reset">LIMPIAR CAMPOS</button>
+    </div>
+    <div class="form-group">
+        <div *ngIf="messageOK" class="alert alert-success"><br>{{messageOK}}</div>
+        <div *ngIf="message" class="alert alert-danger"><br>{{message}}</div>
+    </div>
+</div>
+</form>
+
+

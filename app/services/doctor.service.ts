@@ -18,8 +18,8 @@ export class DoctorService{
         return this.http.get(this.endpoint_url).map(res => res.json());
     }
 
-    getDoctoresByDetails(detalle){
-        return this.http.get("http://localhost/api_cmo/doctoresnombre" + '/' + detalle).map(res => res.json());
+    getDoctoresByDetails(detalle:string){
+        return this.http.get(this.endpoint_url + '/' + detalle).map(res => res.json());
     }
 
     postDoctor(cve,nom,ap1,ap2,fechanac,tel,email,dir){

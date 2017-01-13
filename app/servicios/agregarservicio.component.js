@@ -18,8 +18,6 @@ var AgregarServicioComponent = (function () {
     }
     AgregarServicioComponent.prototype.insertarServicio = function () {
         var _this = this;
-        alert(this.modelo.nom_servicio);
-        alert(this.modelo.tarifa_servicio);
         if (this.modelo.nom_servicio != null && this.modelo.tarifa_servicio != null) {
             this._servicioService.postServicio(this.modelo.nom_servicio, this.modelo.tarifa_servicio)
                 .subscribe(function (result) {

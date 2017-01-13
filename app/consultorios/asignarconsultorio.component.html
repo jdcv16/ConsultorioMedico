@@ -1,0 +1,45 @@
+<h2>Asignar Consultorio</h2>
+<br>
+<form name="forma_asignarconsultorio" action="" method="POST" class="form-horizontal" role="form">
+<div class="form-group">
+    <label for="cb_consultorio" class="col-lg-3 control-label">Consultorio</label>
+    <div class="col-lg-8">
+            <!-- Aqui esta el ejemplo que manda llamar el combobox de las medidas -->
+        <select class="form-control" [(ngModel)]="modelo.id_consultorio" name="cb_consultorio" id="cb_consultorio"  required>
+            <option value="{{consultorio.id_consultorio}}" *ngFor="let consultorio of generateArray(consultorios)" >{{consultorio.nom_consultorio}}</option>
+        </select>
+    </div>
+</div>
+<div class="form-group">
+    <label for="cb_turno" class="col-lg-3 control-label">Turno</label>
+    <div class="col-lg-8">
+            <!-- Aqui esta el ejemplo que manda llamar el combobox de las medidas -->
+        <select class="form-control" [(ngModel)]="modelo.id_turno" name="cb_turno" id="cb_turno"  required>
+            <option value="{{turno.id_turno}}" *ngFor="let turno of generateArray(turnos)" >{{turno.nom_turno}}</option>
+        </select>
+    </div>
+</div>
+<div class="form-group">
+    <label for="cb_doctor" class="col-lg-3 control-label">Doctor a Asignar</label>
+    <div class="col-lg-8">
+            <!-- Aqui esta el ejemplo que manda llamar el combobox de las medidas -->
+        <select class="form-control" [(ngModel)]="modelo.cve_doctor" name="cb_doctor" id="cb_doctor"  required>
+            <option value="{{doctor.cve_doctor}}" *ngFor="let doctor of generateArray(doctores)" >{{doctor.nom_doctor}} {{doctor.ap1_doctor}} {{doctor.ap2_doctor}}</option>
+        </select>
+    </div>
+</div>
+<label for="esediv" class="col-lg-3 control-label"></label>
+<div class="col-lg-8" id="esediv">
+    <div class="form-group">
+        <input class="btn btn-success" type="submit" (click)="insertarAsignacion();" value="ASIGNAR CONSULTORIO">
+        <button class="btn btn-default" type="reset">LIMPIAR CAMPOS</button>
+    </div>
+    <div class="form-group">
+        <div *ngIf="messageOK" class="alert alert-success"><br>{{messageOK}}</div>
+        <div *ngIf="message" class="alert alert-danger"><br>{{message}}</div>
+    </div>
+</div>
+</form>
+
+
+

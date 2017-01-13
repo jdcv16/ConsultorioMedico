@@ -8,4 +8,7 @@ __export(require('./cliente.service'));
 __export(require('./servicio.service'));
 __export(require('./doctor.service'));
 __export(require('./login.service'));
+__export(require('./consultorio.service'));
+__export(require('./turno.service'));
+__export(require('./asignacion.service'));
 //# sourceMappingURL=index.js.map

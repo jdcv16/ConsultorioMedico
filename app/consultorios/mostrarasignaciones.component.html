@@ -1,0 +1,79 @@
+<h2>Mostrar Asignaciones</h2>
+<br>
+<div class="table-responsive">
+    <table class="table table-bordered table-hover no-mgn-btm" >
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>CONSULTORIO</th>
+                <th>TURNO</th>
+                <th>DOCTOR</th>
+                <th>ACCIÓN</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let asignacion of generateArray(asignaciones); let i=index">
+                <td>{{asignacion.id_asignacion}}</td>
+                <td>{{asignacion.nom_consultorio}}</td>
+                <td>{{asignacion.nom_turno}}</td>
+                <td>{{asignacion.nom_doctor}} {{asignacion.ap1_doctor}} {{asignacion.ap2_doctor}}</td>
+                <td align="center"><span class="label label-success" (click)="cargarmodificar(i);" data-toggle="modal" data-target="#amodificar"><strong>MODIFICAR</strong></span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<div class="modal fade" id="amodificar" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modificar Asignación</h4>
+            </div>
+            <div class="modal-body">
+                <form name="forma_modificarasignacion" action="" method="POST" action="">
+                <div class="form-group">
+                    <label for="txtid">Id</label>
+                    <input type="text" maxlength="11" size="15" placeholder="1" 
+                    [(ngModel)]="id_asignacion" autocomplete="off" name="txtid" id="txtid"
+                    class="form-control" style="text-transform:uppercase;" 
+                    onkeyup="javascript:this.value=this.value.toUpperCase();" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="cb_consultorio">Consultorio</label>
+                    <!-- Aqui esta el ejemplo que manda llamar el combobox de las medidas -->
+                    <select class="form-control" [(ngModel)]="id_consultorio" name="cb_consultorio" id="cb_consultorio"  required>
+                        <option value="{{consultorio.id_consultorio}}" *ngFor="let consultorio of generateArray(consultorios)" >{{consultorio.nom_consultorio}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="cb_turno">Turno</label>
+                    <!-- Aqui esta el ejemplo que manda llamar el combobox de las medidas -->
+                    <select class="form-control" [(ngModel)]="id_turno" name="cb_turno" id="cb_turno"  required>
+                        <option value="{{turno.id_turno}}" *ngFor="let turno of generateArray(turnos)" >{{turno.nom_turno}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="cb_doctor">Doctor a Asignar</label>
+                    <!-- Aqui esta el ejemplo que manda llamar el combobox de las medidas -->
+                    <select class="form-control" [(ngModel)]="cve_doctor" name="cb_doctor" id="cb_doctor"  required>
+                        <option value="{{doctor.cve_doctor}}" *ngFor="let doctor of generateArray(doctores)" >{{doctor.nom_doctor}} {{doctor.ap1_doctor}} {{doctor.ap2_doctor}}</option>
+                    </select>
+                </div>
+                <div>
+                    <div class="btn-group">
+                         <input class="btn btn-success" type="submit" (click)="modificarAsignacion();" value="MODIFICAR ASIGNACION">
+                    </div>
+                    <br>
+                    <br>
+                    <div *ngIf="messageOK" class="alert alert-success">{{messageOK}}</div>
+                    <div *ngIf="message" class="alert alert-danger">{{message}}</div>
+                </div>
+            </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+ 

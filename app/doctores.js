@@ -5,4 +5,5 @@ function __export(m) {
 __export(require('./doctores/doctor'));
 __export(require('./doctores/agregardoctor.component'));
 __export(require('./doctores/mostrardoctores.component'));
+__export(require('./doctores/reportedoctores.component'));
 //# sourceMappingURL=doctores.js.map
